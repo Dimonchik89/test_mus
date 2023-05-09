@@ -1,0 +1,119 @@
+@import "./vars.scss";
+
+.body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    padding: 1rem 0;
+    transform: translateY(-100%);
+    transition: all .5s ease 0s;
+
+    @supports (-webkit-backdrop-filter: blur(62px)) or (backdrop-filter: blur(62px)) {
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(62px);
+    }
+
+    .wrapper {
+        display: flex;
+    }
+
+    .img {
+        flex: 0 0 15rem;
+        padding-bottom: 15rem / 91rem * 100%;
+        border-radius: 2rem;
+
+        @media (max-width: #{$md2 + px}) {
+            flex: 0 0 11.5rem;
+        }
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .close__player {
+        cursor: pointer;
+        
+        svg {
+            transition: all .3s ease 0s;
+        }
+
+        @media(any-hover: hover) {
+            &:hover {
+
+                svg {
+                    color: $yellow;
+                }
+            }
+        }
+    }
+
+    .content {
+        flex: 1 1 auto;
+        margin-left: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .track__wrapper {
+        overflow: hidden;
+
+    }
+
+    .track {
+        // transform: translateY(50%);
+        height: 4.5rem;
+    }
+
+    .player__btn {
+        padding: 0 .6rem 0 .4rem;
+        height: 3.5rem;
+        border: 1px solid $white;
+        border-radius: 1rem;
+        cursor: pointer;
+        transition: all .3s ease 0s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            transition: all .3s ease 0s;
+        }
+        
+        @media (any-hover: hover) {
+            &:hover {
+                background: $yellow;
+
+                svg {
+                    color: black;
+                }
+            }
+        }
+
+        @media (max-width: #{$md2 + px}) {
+            height: 2.8rem;
+
+            svg {
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    .btn__right {
+        display: flex;
+    }
+}
+
+._active {
+    transform: translateY(0);
+}

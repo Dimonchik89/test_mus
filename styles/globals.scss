@@ -1,0 +1,83 @@
+@import "./reset.scss";
+@import "./vars.scss";
+@import 'swiper/css';
+// @import 'swiper/modules/navigation/navigation.scss';
+
+// $minWidth: 375px;
+// $maxWidth: 1512;
+// $maxWidthContainer: 940;
+// $md1: $maxWidthContainer + 12;
+// $md2: 834;
+// $md3: 767.98;
+// // $md4: 479.98;
+// $md4: 375;
+
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+    $addSize: $startSize - $minSize;
+
+    @if $type==1 {
+        //Только если меньше контейнера
+        #{$property}: #{$startSize + px};
+        @media (max-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}))
+        }
+    } @else if $type==2 {
+        // Только если больше контейнера
+        #{$property}: #{$startSize + px};
+        @media (max-width: #{$maxWidthContainer + px}) {
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}))
+        }
+    } @else {
+        //Всегда
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}))
+    }
+}
+
+.page {
+    overflow: hidden;
+    flex: 1 0 auto;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: $white;
+}
+
+body {
+}
+
+._container {
+    max-width: $maxWidthContainer + px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+._text__1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+    box-orient: vertical;
+}
+
+.MuiPagination-ul {
+    display: flex;
+    justify-content: center;
+
+    .MuiPaginationItem-root {
+        color: $white;
+        font-size: 1.4rem;
+
+        &.Mui-selected {
+            background-color: transparent;
+            color: $white;
+            border-radius: 0;
+            border: 1px solid $yellow;
+        }
+    }
+}

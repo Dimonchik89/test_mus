@@ -1,0 +1,74 @@
+@import "./vars.scss";
+
+.carousel {
+    margin-top: 5rem;
+    padding-bottom: 8.1rem;
+    background: linear-gradient(360deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+
+    .carousel__container {
+        position: relative;
+    }
+
+    .carousel__card {
+        border-radius: 2rem;
+        overflow: hidden;
+        border: .2rem solid $gray;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .carousel__card_active {
+        border: .2rem solid $yellow;
+    }
+
+    .carousel__title {
+        font-size: 3.4rem;
+        font-weight: 900;
+        line-height: 125%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 1rem 0 0 2rem;
+
+        @media (max-width:#{$md2+ px}) {
+            font-size: 3rem;
+        }
+
+        @media (max-width: #{$md4 + px}) {
+            font-size: 3.8rem;
+        }
+    }
+
+    .carousel__navigation {
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        left: -4rem;
+        z-index: 2;
+        transform: translateY(-50%);
+        width: calc(100% + 8rem);
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: #{$md1 + px}) {
+            display: none;
+        }
+    }
+
+    .carousel__control {
+        pointer-events: auto;
+        height: 8rem;
+        border: 2px solid $gray;
+        border-radius: 2rem;
+        display: flex;
+        align-items: center;
+        transition: all .3s ease 0s;
+        cursor: pointer;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: darken($yellow, 5%);
+            }
+        }
+    }
+}

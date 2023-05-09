@@ -1,0 +1,153 @@
+@import "./vars.scss";
+
+.tracks {
+    padding: 4rem 0 8rem;
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+
+    @supports (-webkit-backdrop-filter: blur(62px)) or (backdrop-filter: blur(62px)) {
+        .body {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(62px);
+        }
+    } 
+
+    @media (max-width: #{$md2 + px}) {
+        padding: 4rem 0;
+    }
+
+    @media (max-width: #{$md3 + px}) {
+        padding: 2rem 0;
+    }
+
+    .body {
+        padding: 4.1rem 9rem;   
+        border-radius: 2rem;  
+        
+        @media (max-width: #{$md2 + px}) {
+            padding: 4rem 4.5rem;
+        }
+
+        @media (max-width: #{$md3 + px}) {
+            padding: 2rem;
+        }
+    }
+  
+    .tracks__title {
+        font-size: 3.8rem;
+        font-weight: 700;
+        line-height: 120%;
+        text-align: center;
+
+        @media (max-width: #{$md2 + px}) {
+            font-size: 3rem;
+        }
+
+        @media (max-width: #{$md3 + px}) {
+            
+        }
+    }
+
+    .list {
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: #{$md2 + px}) {
+            margin-top: 3rem;
+        }
+
+        @media (max-width: #{$md3 + px}) {
+            margin-top: 2.5rem;
+        }
+    }
+
+    .item {
+        background: linear-gradient(180deg, #1F1F1F 0%, #242424 100%);
+        padding: 2rem;
+        border-radius: 2rem;
+        display: flex;
+
+        &:not(:last-child) {
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: #{$md3 + px}) {
+            &:not(:last-child) {
+                margin-bottom: 2.5rem;
+                padding: 1.5rem;
+            }
+        }
+    }
+
+    .img {
+        padding-bottom: 9rem;
+        flex: 0 0 9rem;
+        border-radius: 2rem;
+        cursor: pointer;
+
+        @media (max-width: #{$md3 + px}) {
+            padding-bottom: 8rem;
+            flex: 0 0 8rem;
+        }
+    }
+
+    .content {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 2rem;
+    }
+
+    .track__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .track__title {
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 116%;
+        cursor: pointer;
+
+        @media (max-width: #{$md2 + px}) {
+            font-size: 1.8rem;
+        }
+
+        @media (max-width: #{$md3 + px}) {
+            font-size: 1.4rem;
+        }
+    }
+
+    .track__subtitle {
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 116%;
+        color: $gray;
+
+        @media (max-width: #{$md2 + px}) {
+            font-size: 1.4rem;
+        }
+    }
+
+    .controll {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .button__right {
+        display: flex;
+        margin-left: 3rem;
+        position: relative;
+    }
+
+    .text {
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 116%;
+
+        @media (max-width: #{$md3 + px}) {
+            font-size: 1rem;
+        }
+    }
+}

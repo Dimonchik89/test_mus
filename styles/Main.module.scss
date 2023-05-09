@@ -1,0 +1,57 @@
+@import "./vars.scss";
+
+.main {
+    background: url("../public/img/header-bg.png");
+
+    @supports (-webkit-backdrop-filter: blur(62px)) or (backdrop-filter: blur(62px)) {
+        .main__label {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(62px);
+        }
+    }
+
+    .main__label {
+        padding-top: 16.7rem;
+        padding-bottom: 3rem;
+    
+        @media (max-width: #{$md3 + px}) {
+            padding-top: 12rem;
+        }
+
+        @media (max-width: #{$md4 + px}) {
+            padding-top: 8rem;
+        }
+
+        .label__wrapepr {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .label__title {
+            margin-bottom: 1.6rem;
+            font-weight: 500;
+        }
+
+        .label__subtitle {
+            font-size: 2.6rem;
+
+            @media (max-width: #{$md1 + px}) {
+                font-size: 2.2rem;
+            }
+
+            @media (max-width: #{$md2 + px}) {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.wrapper {
+    background-image: url("/img/sound-bg.png");
+    padding-bottom: 10rem;
+
+    @media (max-width: #{$md3 + px}) {
+        padding-bottom: 5rem;
+    }
+}
