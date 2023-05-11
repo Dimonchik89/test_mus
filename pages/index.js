@@ -70,56 +70,6 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
   )
 }
 
-// export async function getServerSideProps({req, res, query}) {
-//   const categories = await axios(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/category`)
-//   let firstLoad = true;
-//   let tracks;  
-//   if(req) {
-//     if(!query?.categoryId && !query?.page) {
-//       console.log("!query?.category && !query?.page1");
-//       tracks = await axios.get(`${process.env.BASE_SERVER_URL}api/music`, {params: {sound: query?.sound}})
-//     } else if(query?.categoryId && !query?.page) {
-//       console.log("query?.category && !query?.page1");
-//       tracks = await axios.get(`${process.env.BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, sound: query?.sound}})
-//     } else if(!query?.categoryId && query?.page) {
-//       console.log("!query?.category && query?.page1");
-//       tracks = await axios.get(`${process.env.BASE_SERVER_URL}api/music`, {params: {page: query?.page, sound: query?.sound}})
-//     } else {
-//       console.log("all yes 1");
-//       tracks = await axios.get(`${process.env.BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, page: query?.page, sound: query?.sound}})
-//     }
-//   } else {
-//     if(!query?.categoryId && !query?.page) {
-//       console.log('!query?.category && !query?.page2');
-//       tracks = await axios.get(`${process.env.BASE_SERVER_URL}api/music`)
-//     } else if(query?.categoryId && !query?.page) {
-//       console.log("query?.category && !query?.page2");
-//       tracks = await axios.get(`${process.env.BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId}})
-//     } else if(!query?.categoryId && query?.page) {
-//       console.log("!query?.category && query?.page2");
-//       tracks = await axios.get(`${process.env.BASE_SERVER_URL}api/music`, {params: {page: query?.page}})
-//     } else {
-//       console.log("all yes 2");
-//       tracks = await axios.get(`${process.env.BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, page: query?.page}})
-//     }
-//   }
-//   // console.log("tracks", tracks);
-
-//  if(req && query.music) {
-//     firstLoad = false
-//   }
-
-//   // tracks = await axios.get(`${process.env.BASE_SERVER_URL}api/music`, {params: query})
-    
-//   return {
-//     props: {
-//       categories: categories.data,
-//       tracks: tracks.data,
-//       firstLoad
-//     }
-//   }
-// }
-
 Home.getInitialProps = async ({req, res, query}) => {
   const categories = await axios(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/category`)
   let firstLoad = true;
@@ -157,8 +107,6 @@ Home.getInitialProps = async ({req, res, query}) => {
   if(req && query.music) {
     firstLoad = false
   }
-
-  // tracks = await axios.get(`${process.env.BASE_SERVER_URL}api/music`, {params: query})
     
   return {
       categories: categories.data,

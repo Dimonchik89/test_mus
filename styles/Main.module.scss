@@ -13,6 +13,7 @@
     .main__label {
         padding-top: 16.7rem;
         padding-bottom: 3rem;
+        text-align: center;
     
         @media (max-width: #{$md3 + px}) {
             padding-top: 12rem;

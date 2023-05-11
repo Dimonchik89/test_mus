@@ -14,6 +14,7 @@ const Paginations = ({allTracksQty}) => {
     return (
         <Box className={paginations.wrapper}>
             <Pagination 
+                siblingCount={0}
                 count={allPages} 
                 page={+router.query.page || 1} 
                 color="primary"
