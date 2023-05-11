@@ -12,13 +12,18 @@ import { downloadFile } from "../../api/downloadApi";
 import button from "../../styles/Button.module.scss";
 
 
-const ButtonsController = ({handlePlay, play, handleShare, share, disabled, trackLoaded, trackId, track}) => {
+const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, trackId, track}) => {
     const router = useRouter()
 
     const shareBlock = share ? <ShareBlock trackId={track?.id}/> : null
     return (
         <Box className={button.controll}>
-            <PlayButton handleClick={handlePlay} play={play} disabled={disabled}/>
+            <PlayButton 
+                handleClick={handlePlay} 
+                play={play} 
+                disabled={disabled}
+                playRef={playRef}
+            />
 
             {!trackLoaded && +router.query.sound === track?.id ? <CircularProgress sx={{color: "#F2D22B", width: "30px !important", height: "30px !important"}}/> : null}
 

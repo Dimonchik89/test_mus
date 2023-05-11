@@ -41,17 +41,25 @@ const TrackItem = ({track, setSelectTrack, selectTrack, setChangePlay, setChange
 
     const handlePlay = () => {
         if(selectTrack) {
+            console.log("select tracl");
             if(selectTrack.id === track.id) {
+                console.log("select == track");
                 setTrackLoaded(true)
                 setChangeSelectTrackPlay()
                 setChangePlay(track?.id)
             } else {
+                console.log("select !== track");
+                stopAllTrack()
                 setTrackLoaded(false)
                 trackRouter()
             }
         } else {
+            console.log("no select track");
             setTrackLoaded(false)
             trackRouter()
+
+
+            // setChangePlay(track?.id)
         }
     }
 

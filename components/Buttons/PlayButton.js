@@ -4,7 +4,7 @@ import PauseIcon from '@mui/icons-material/Pause';
 
 import button from "../../styles/Button.module.scss"
 
-const PlayButton = ({handleClick, play, disabled}) => {
+const PlayButton = ({handleClick, play, disabled, playRef}) => {
     const [style, setStyle] = useState(button.play)
 
     const content = play ? <PauseIcon
@@ -28,6 +28,7 @@ const PlayButton = ({handleClick, play, disabled}) => {
             onClick={handleClick}
             className={style}
             disabled={disabled}
+            ref={playRef}
         >
             {content}
         </button>

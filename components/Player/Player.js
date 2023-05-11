@@ -35,12 +35,13 @@ const formWaveSurferOptions = (ref) => ({
   hideScrollbar: true,
 });
 
-const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackLoaded, trackLoaded, removeSelectTrack, tracks, stopAllTrack}) => {
+const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackLoaded, trackLoaded, removeSelectTrack, tracks, stopAllTrack, firstLoad, setFirstLoad}) => {
     const waveformRef = useRef(null)
     const wavesurfer = useRef(null);
     const [share, setShare] = useState(false)
     const [playerStyle, setPlayerStyle] = useState(`${player.body} ${player._active}`)   
     const router = useRouter() 
+    const playRef = useRef(null)
     
     useEffect(() => {
         const create = async () => {
@@ -59,8 +60,11 @@ const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackL
 
             wavesurfer.current.on("ready", function () {
                 const duration = wavesurfer.current.getDuration();
+                if(!firstLoad) {
+                    playRef.current.click()
+                }
+                setFirstLoad()
             });
-
 
             if(waveformRef?.current?.children.length > 1) {
                 const waveLength = waveformRef?.current?.children.length
@@ -84,12 +88,15 @@ const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackL
     }, [selectTrack?.audio]);
 
     useEffect(() => {
+        console.log("start");
         if(selectTrack?.play) {
+            console.log("play");
             setTimeout(() => {
                 wavesurfer?.current?.play()
             }, 1)
             
         } else {
+            console.log("stop");
             setTimeout(() => {
                 wavesurfer?.current?.pause()
             }, 1)
@@ -164,6 +171,7 @@ const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackL
                             share={share}
                             disabled={!trackLoaded}
                             track={selectTrack}
+                            playRef={playRef}
                         />
                         <Box className={player.track__wrapper}>
                             <div 

@@ -21,6 +21,7 @@ import ModalFix from "../components/Modal/ModalFix";
 const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, firstLoad, setSelectTrack, setTrackLoaded, selectTrack}) => {
   const router = useRouter()
   const [fixModal, setFixModal] = useState(false)
+  const [firstLoading, setFirstLoading] = useState(true)
 
   const openFixModal = () => {
     setFixModal(true)
@@ -48,6 +49,7 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
         pathname: "/",
         query: {...tailQuery}
       }, null, {scroll: false, shallow: true})
+      setFirstLoading(false)
     }
   }, [firstLoad])
 
@@ -64,6 +66,10 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
     }
   }, [tracks?.rows, router.query?.sound])
 
+  const changeFirstLoad = () => {
+    setFirstLoading(false)
+  }
+
   return (
     <Box>
       <Box className={main.main}>
@@ -78,7 +84,10 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
           closeModal={closeFixModal}
         />
       </Box>
-      <Player/>
+      <Player 
+        firstLoad={firstLoading}
+        setFirstLoad={changeFirstLoad}
+      />
       <ModalFix show={fixModal} handleClose={closeFixModal}/>
     </Box>
   )
