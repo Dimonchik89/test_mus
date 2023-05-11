@@ -5,7 +5,7 @@ import Main from "../components/Main/Main";
 import Carousel from "../components/Carousel/Carousel";
 import Tracks from "../components/Tracks/Tracks";
 import Player from "../components/Player/Player";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { setCategories } from "../store/categories/categoriesSlice";
 import { bindActionCreators } from "@reduxjs/toolkit";
@@ -16,9 +16,19 @@ import { createStructuredSelector } from 'reselect';
 
 import main from "../styles/Main.module.scss";
 import Footer from "../components/Footer/Footer";
+import ModalFix from "../components/Modal/ModalFix";
 
 const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, firstLoad, setSelectTrack, setTrackLoaded, selectTrack}) => {
   const router = useRouter()
+  const [fixModal, setFixModal] = useState(false)
+
+  const openFixModal = () => {
+    setFixModal(true)
+  }
+
+  const closeFixModal = () => {
+    setFixModal(false)
+  }
 
   useEffect(() => {
     setCategories(categories)
@@ -63,9 +73,13 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
       </Box>
       <Box className={main.wrapper}>
         <Tracks/>
-        <Footer/>
+        <Footer
+          openModal={openFixModal}
+          closeModal={closeFixModal}
+        />
       </Box>
       <Player/>
+      <ModalFix show={fixModal} handleClose={closeFixModal}/>
     </Box>
   )
 }

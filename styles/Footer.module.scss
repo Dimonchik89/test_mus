@@ -73,6 +73,7 @@
         line-height: 116%;
         font-weight: 500;
         color: $yellow;
+        cursor: pointer;
 
         @media (max-width:#{$md4 + px}) {
             &:not(:last-child) {

@@ -1,0 +1,59 @@
+@import "./vars.scss";
+
+.body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: $black;
+    border: 2px solid $white;
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+
+    .content {
+        margin: 0 auto;
+        width: 70%;
+    }
+
+    .form {
+        width: 80%;
+        height: 4rem;
+        border: 1px solid $white;
+        display: flex;
+        align-items: center;
+        margin: 1.5rem auto 0;
+        border-radius: 1rem;
+        padding: 0 1rem;
+
+        input {
+            margin: 0;
+            padding: 0;
+            border: none;
+            height: 100%;
+            padding: 0 1rem;
+            margin-left: 1rem;
+            flex: 1 1 auto;
+            font-size: 1.4rem;
+            color: $white;
+            background: transparent;
+
+            &::placeholder {
+                font-size: 1.4rem;
+                color: $white;
+            }
+
+            &:active,
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .submit {
+        color: $white;
+        font-size: 1.2rem;
+        align-self: center;
+        line-height: 2.4rem;
+    }
+}

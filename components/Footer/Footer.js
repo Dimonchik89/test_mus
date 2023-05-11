@@ -1,12 +1,14 @@
 import { Box, Typography } from "@mui/material";
 import FooterSocial from "./FooterSocial";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
 
 import helper from "../../styles/Helper.module.scss";
 import footer from "../../styles/Footer.module.scss";
 
-const Footer = () => {
+const Footer = ({openModal, closeModal}) => {
     const footerRef = useRef(null)
+    const router = useRouter()
 
     // useEffect(() => {
 
@@ -43,11 +45,13 @@ const Footer = () => {
                     <Box className={footer.bottom}>
                         <Typography
                             className={footer.link}
+                            onClick={openModal}
                         >
                             Got a Claim? Fix it
                         </Typography>
                         <Typography
                             className={footer.link}
+                            onClick={() => router.push("/faq")}
                         >
                             FAQ
                         </Typography>
