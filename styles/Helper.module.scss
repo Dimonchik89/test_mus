@@ -29,6 +29,10 @@
     @media (max-width: #{$md2 + px}) {
         text-align: center;
     }
+
+    @media (max-width: #{$md4 + px}) {
+        font-size: 2rem !important;
+    }
 }
 
 ._align__end {

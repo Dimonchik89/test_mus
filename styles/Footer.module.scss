@@ -51,6 +51,11 @@
 
         svg {
             transition: all .3s ease 0s;
+
+            @media (max-width: #{$md3 + px}) {
+                width: 2.6rem;
+                height: 2.6rem;
+            }
         }
 
         &:hover {
@@ -73,6 +78,7 @@
         @media (max-width: #{$md4 + px}) {
             flex-direction: column;
             align-items: center;
+            width: 100%;
         }
     }
 
@@ -84,6 +90,8 @@
         cursor: pointer;
 
         @media (max-width:#{$md4 + px}) {
+            font-size: 1.6rem;
+
             &:not(:last-child) {
                 margin-bottom: 1.5rem;
             }

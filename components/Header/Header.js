@@ -21,12 +21,14 @@ const Header = () => {
         if (typeof window !== "undefined") {
             const headerObserver = new IntersectionObserver(callback)
             headerObserver?.observe(headerRef.current)
+            return () => headerObserver.unobserve(headerRef.current)
         }
     }
 
     useEffect(() => {
+        if (!headerRef?.current) return
         observer()
-    }, [])
+    }, [headerRef])
 
     return (
         <Box 

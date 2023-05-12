@@ -11,9 +11,27 @@
     padding: 2.5rem 2rem;
     border-radius: 1rem;
 
+    @media (max-width: #{$md1 + px}) {
+        width: 70%;
+    }
+
+    @media (max-width: #{$md2 + px}) {
+        width: 95%;
+    }
+
     .content {
         margin: 0 auto;
         width: 70%;
+
+        @media (max-width: #{$maxWidth + px}) {
+            width: 80%;
+        }
+
+        @media (max-width: #{$md2 + px}) {
+            width: 100%;
+            // padding: 2.5rem 3rem;
+        }
+
     }
 
     .form {
@@ -26,7 +44,15 @@
         border-radius: 1rem;
         padding: 0 1rem;
 
-        input {
+        @media (max-width: #{$maxWidth + px}) {
+            width: 100%;
+        }
+
+        @media (max-width: #{$md3 + px}) {
+            padding: 0 .5rem;
+        }
+
+        .fix__input {
             margin: 0;
             padding: 0;
             border: none;
@@ -47,6 +73,10 @@
             &:focus {
                 outline: none;
             }
+            
+            @media (max-width: #{$md3 + px}) {
+                padding: 0 .5rem;
+            }
         }
     }
 
@@ -55,6 +85,13 @@
         font-size: 1.2rem;
         align-self: center;
         line-height: 2.4rem;
+
+        @media (max-width: #{$md3 + px}) {
+            
+            & svg {
+                display: none;
+            }
+        }
     }
 
     .wrapper {

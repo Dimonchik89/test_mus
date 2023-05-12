@@ -28,8 +28,6 @@ const ModalFix = ({show, handleClose, openError}) => {
         <Modal
             open={show}
             onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
             >
             <Box className={modal.body}>
                 <Box className={modal.content}>
@@ -50,6 +48,7 @@ const ModalFix = ({show, handleClose, openError}) => {
                             value={value}
                             onChange={e => setValue(e.target.value)}
                             placeholder="Youtube video link"
+                            className={modal.fix__input}
                         />
                         <Button 
                             type="submit"
