@@ -2,6 +2,8 @@
 
 .main {
     background: url("../public/img/header-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 
     @supports (-webkit-backdrop-filter: blur(62px)) or (backdrop-filter: blur(62px)) {
         .main__label {

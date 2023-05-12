@@ -2,18 +2,25 @@ import { Box, Button, Modal, Typography } from "@mui/material";
 import { useState } from "react";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { sendEmail } from "../../api/sendEmail";
 
 import modal from "../../styles/Modal.module.scss";
 
 const ModalFix = ({show, handleClose}) => {
     const [value, setValue] = useState("")
 
-    const handleSubit = (e) => {
+    const handleSubit = async (e) => {
         e.preventDefault()
         console.log(value);
 
-        setValue("")
-        handleClose()
+        const response = await sendEmail(value)
+        if(response.status === 200) {
+            setValue("")
+            handleClose()
+        } else {
+            
+        }
+
     }
 
     return (
