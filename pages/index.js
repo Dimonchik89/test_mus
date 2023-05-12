@@ -17,19 +17,13 @@ import { createStructuredSelector } from 'reselect';
 import main from "../styles/Main.module.scss";
 import Footer from "../components/Footer/Footer";
 import ModalFix from "../components/Modal/ModalFix";
+import ModalError from "../components/Modal/ModalError";
+import useChangeModalHook from "../hooks/useChangeModalHook";
 
 const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, firstLoad, setSelectTrack, setTrackLoaded, selectTrack}) => {
   const router = useRouter()
-  const [fixModal, setFixModal] = useState(false)
   const [firstLoading, setFirstLoading] = useState(true)
-
-  const openFixModal = () => {
-    setFixModal(true)
-  }
-
-  const closeFixModal = () => {
-    setFixModal(false)
-  }
+  const {fixModal, openFixModal, closeFixModal, errorModal, openErrorModal, closeErrorModal} = useChangeModalHook()
 
   useEffect(() => {
     setCategories(categories)
@@ -86,7 +80,8 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
         firstLoad={firstLoading}
         setFirstLoad={changeFirstLoad}
       />
-      <ModalFix show={fixModal} handleClose={closeFixModal}/>
+      <ModalFix show={fixModal} handleClose={closeFixModal} openError={openErrorModal}/>
+      <ModalError show={errorModal} handleClose={closeErrorModal}/>
     </Box>
   )
 }

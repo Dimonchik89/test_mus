@@ -6,7 +6,7 @@ import { sendEmail } from "../../api/sendEmail";
 
 import modal from "../../styles/Modal.module.scss";
 
-const ModalFix = ({show, handleClose}) => {
+const ModalFix = ({show, handleClose, openError}) => {
     const [value, setValue] = useState("")
 
     const handleSubit = async (e) => {
@@ -18,9 +18,10 @@ const ModalFix = ({show, handleClose}) => {
             setValue("")
             handleClose()
         } else {
-            
+            setValue("")
+            handleClose()
+            openError()
         }
-
     }
 
     return (

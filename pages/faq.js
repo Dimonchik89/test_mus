@@ -5,7 +5,8 @@ import main from "../styles/Main.module.scss"
 import faq from "../styles/Faq.module.scss"
 import AccordionBlock from "../components/Accordion/AccordionBlock";
 import ModalFix from "../components/Modal/ModalFix";
-import { useState } from "react";
+import ModalError from "../components/Modal/ModalError";
+import useChangeModalHook from "../hooks/useChangeModalHook";
 
 const accordionContent = [
     {
@@ -38,15 +39,7 @@ const accordionContent = [
 ]
 
 const Faq = () => {
-    const [fixModal, setFixModal] = useState(false)
-
-    const closeFixModal = () => {
-        setFixModal(false)
-    }
-
-    const openFixModal = () => {
-        setFixModal(true)
-    }
+    const {fixModal, openFixModal, closeFixModal, errorModal, openErrorModal, closeErrorModal} = useChangeModalHook()
 
     return (
         <Box className={main.main}>
@@ -58,7 +51,8 @@ const Faq = () => {
                         accordionArray={accordionContent}
                         handleOpen={openFixModal}
                     />
-                    <ModalFix show={fixModal} handleClose={closeFixModal}/>
+                    <ModalFix show={fixModal} handleClose={closeFixModal} openError={openErrorModal}/>
+                    <ModalError show={errorModal} handleClose={closeErrorModal}/>
                 </Box>
             </Box>
         </Box>
