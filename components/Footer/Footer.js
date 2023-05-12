@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import FooterSocial from "./FooterSocial";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 
 import helper from "../../styles/Helper.module.scss";

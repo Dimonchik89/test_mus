@@ -5,6 +5,14 @@
     padding-bottom: 8.1rem;
     background: linear-gradient(360deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
 
+    @media (max-width: #{$md2 + px}) {
+        padding-bottom: 4rem;
+    }
+
+    @media (max-width: #{$md3 + px}) {
+        padding-bottom: 1rem;
+    }
+
     .carousel__container {
         position: relative;
     }
@@ -35,7 +43,7 @@
         }
 
         @media (max-width: #{$md4 + px}) {
-            font-size: 3.8rem;
+            font-size: 3.2rem;
         }
     }
 

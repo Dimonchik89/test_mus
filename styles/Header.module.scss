@@ -22,9 +22,6 @@
     }
 
     .header__body {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         position: fixed;
         top: 0;
         left: 0;
@@ -38,12 +35,15 @@
         }
     }
 
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     .header__logo {
         display: flex;
         cursor: pointer;
-
-        @media (max-width: #{$md3 + px}) {
-            flex: 0 1 50%;
-        }
+        width: 20rem;
     }
 }

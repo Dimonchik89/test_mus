@@ -23,6 +23,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+
+        @media (max-width: #{$md3 + px}) {
+            padding: 2rem 02.5rem;
+        }
     }
 
     .top {
@@ -34,6 +38,10 @@
     .social__block {
         margin-top: 3.2rem;
         display: flex;
+
+        @media (max-width: #{$md3 + px}) {
+            margin-top: 2rem;
+        }
     }
 
     .social__link {
@@ -59,7 +67,7 @@
         justify-content: space-between;
 
         @media (max-width: #{$md3 + px}) {
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         @media (max-width: #{$md4 + px}) {

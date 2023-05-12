@@ -23,10 +23,18 @@
     font-weight: 900;
 
     @media (max-width: #{$md1 + px}) {
-        font-size: 3rem;
+        font-size: 3rem !important;
     }
 
     @media (max-width: #{$md2 + px}) {
         text-align: center;
     }
+}
+
+._align__end {
+    align-items: flex-end;
+}
+
+._align__center {
+    align-items: center;
 }

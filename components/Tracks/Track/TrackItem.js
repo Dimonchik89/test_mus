@@ -2,19 +2,20 @@ import { Box } from "@mui/material";
 import TrackItemLogo from "./TrackItemLogo";
 import TrackItemHeader from "./TrackItemHeader";
 import TrackItemDescription from "./TrackItemDescription";
-import { setSelectTrack, selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackLoaded, stopAllTrack } from "../../../store/tracks";
+import { selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackLoaded, stopAllTrack } from "../../../store/tracks";
 import { bindActionCreators } from "@reduxjs/toolkit";
 import { createStructuredSelector } from 'reselect';
 import { connect } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ButtonsController from "../../Buttons/ButtonsController";
 import { trackLoaded } from "../../../store/tracks";
 import { useRouter } from "next/router";
 
+import button from "../../../styles/Button.module.scss"
+import helper from "../../../styles/Helper.module.scss"
 import tracks from "../../../styles/Tracks.module.scss"
 
-
-const TrackItem = ({track, setSelectTrack, selectTrack, setChangePlay, setChangeSelectTrackPlay, trackLoaded, setTrackLoaded, stopAllTrack}) => {
+const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay, trackLoaded, setTrackLoaded, stopAllTrack}) => {
     const [share, setShare] = useState(false)
     const router = useRouter();
 
@@ -57,8 +58,6 @@ const TrackItem = ({track, setSelectTrack, selectTrack, setChangePlay, setChange
             console.log("no select track");
             setTrackLoaded(false)
             trackRouter()
-
-
             // setChangePlay(track?.id)
         }
     }
@@ -76,6 +75,7 @@ const TrackItem = ({track, setSelectTrack, selectTrack, setChangePlay, setChange
                     share={share}
                     disabled={selectTrack?.id === track?.id ? !trackLoaded :false}
                     track={track}
+                    controlStyle={`${button.controll} ${helper._align__end}`}
                 />
             </Box>
         </Box>
@@ -88,7 +88,6 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispathToProps = dispatch => ({
-    setSelectTrack: bindActionCreators(setSelectTrack, dispatch),
     setChangePlay: bindActionCreators(setChangePlay, dispatch),
     setChangeSelectTrackPlay: bindActionCreators(setChangeSelectTrackPlay, dispatch),
     setTrackLoaded: bindActionCreators(setTrackLoaded, dispatch),

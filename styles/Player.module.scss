@@ -2,13 +2,13 @@
 
 .body {
     position: fixed;
-    top: 0;
+    top: 100%;
     left: 0;
     right: 0;
     z-index: 100;
     width: 100%;
     padding: 1rem 0;
-    transform: translateY(-100%);
+    transform: translateY(0);
     transition: all .5s ease 0s;
 
     @supports (-webkit-backdrop-filter: blur(62px)) or (backdrop-filter: blur(62px)) {
@@ -21,8 +21,8 @@
     }
 
     .img {
-        flex: 0 0 15rem;
-        padding-bottom: 15rem / 91rem * 100%;
+        flex: 0 0 13rem;
+        padding-bottom: 13rem / 91rem * 100%;
         border-radius: 2rem;
 
         @media (max-width: #{$md2 + px}) {
@@ -115,5 +115,5 @@
 }
 
 ._active {
-    transform: translateY(0);
+    transform: translateY(-100%);
 }

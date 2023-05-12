@@ -33,20 +33,30 @@ const Header = () => {
             ref={headerRef}
             className={header.header}
         >
+            
+
+            
             <Box className={header.header__body}>
-                <div 
-                    onClick={() => router.push({
-                        pathname: "/"
-                    }, null, {scroll: false})}
-                    className={header.header__logo}
-                >
-                    <img 
-                        src="/img/Logo.svg" 
-                        alt="logo"
-                    />
-                </div>
-                <Search/>
+                <Box className="_container">
+                    <Box className={header.content}>
+
+                    
+                    <div 
+                        onClick={() => router.push({
+                            pathname: "/"
+                        }, null, {scroll: false})}
+                        className={header.header__logo}
+                    >
+                        <img 
+                            src="/img/Logo.svg" 
+                            alt="logo"
+                        />
+                    </div>
+                    <Search/>
+                    </Box>
+                </Box>
             </Box>
+            
         </Box>
     )
 }

@@ -54,9 +54,7 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
   }, [firstLoad])
 
   useEffect(() => {
-    console.log("router.query?.sound0", router.query?.sound);
     if(router.query?.sound && tracks?.rows) {
-      console.log("router.query?.sound", router.query?.sound);
         if(+router.query?.sound !== selectTrack?.id) {
           const track = tracks?.rows.find(item => item?.id == +router?.query?.sound)
           if(track) {
@@ -99,30 +97,22 @@ Home.getInitialProps = async ({req, res, query}) => {
   let tracks;  
   if(!!req) {
     if(!query?.categoryId && !query?.page) {
-      console.log("!query?.category && !query?.page1");
       tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {sound: query?.sound}})
     } else if(query?.categoryId && !query?.page) {
-      console.log("query?.category && !query?.page1");
       tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, sound: query?.sound}})
     } else if(!query?.categoryId && query?.page) {
-      console.log("!query?.category && query?.page1");
       tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {page: query?.page, sound: query?.sound}})
     } else {
-      console.log("all yes 1");
       tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, page: query?.page, sound: query?.sound}})
     }
   } else {
     if(!query?.categoryId && !query?.page) {
-      console.log('!query?.category && !query?.page2');
       tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`)
     } else if(query?.categoryId && !query?.page) {
-      console.log("query?.category && !query?.page2");
       tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId}})
     } else if(!query?.categoryId && query?.page) {
-      console.log("!query?.category && query?.page2");
       tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {page: query?.page}})
     } else {
-      console.log("all yes 2");
       tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, page: query?.page}})
     }
   }

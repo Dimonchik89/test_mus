@@ -28,7 +28,7 @@
         }
 
         @media (max-width: #{$md3 + px}) {
-            padding: 2rem;
+            padding: 2rem 1rem;
         }
     }
   
@@ -63,7 +63,7 @@
 
     .item {
         background: linear-gradient(180deg, #1F1F1F 0%, #242424 100%);
-        padding: 2rem;
+        padding: 1rem 1.5rem;
         border-radius: 2rem;
         display: flex;
 
@@ -74,21 +74,17 @@
         @media (max-width: #{$md3 + px}) {
             &:not(:last-child) {
                 margin-bottom: 2.5rem;
-                padding: 1.5rem;
+                padding: 1rem;
             }
         }
     }
 
     .img {
-        padding-bottom: 9rem;
-        flex: 0 0 9rem;
+        padding-bottom: 7.7rem;
+        flex: 0 0 7.7rem;
         border-radius: 2rem;
         cursor: pointer;
 
-        @media (max-width: #{$md3 + px}) {
-            padding-bottom: 8rem;
-            flex: 0 0 8rem;
-        }
     }
 
     .content {
@@ -97,6 +93,10 @@
         flex-direction: column;
         justify-content: space-between;
         padding-left: 2rem;
+
+        @media (max-width: #{$md3 + px}) {
+            padding-left: 1rem;
+        }
     }
 
     .track__header {
@@ -105,7 +105,7 @@
     }
 
     .track__title {
-        font-size: 2.2rem;
+        font-size: 2rem;
         font-weight: 500;
         line-height: 116%;
         cursor: pointer;
@@ -145,6 +145,7 @@
         font-size: 1.2rem;
         font-weight: 400;
         line-height: 116%;
+        margin-top: .5rem;
 
         @media (max-width: #{$md3 + px}) {
             font-size: 1rem;

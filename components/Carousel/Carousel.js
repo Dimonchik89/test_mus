@@ -64,7 +64,7 @@ const Carousel = ({categories}) => {
                     }}
                     breakpoints={{
                         375: {
-                            slidesPerView: 1.4
+                            slidesPerView: 1.7
                         },
                         479.98: {
                             slidesPerView: 2.8

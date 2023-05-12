@@ -9,9 +9,9 @@ import { bindActionCreators } from "@reduxjs/toolkit";
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
 
+import button from "../../styles/Button.module.scss"
 import helper from "../../styles/Helper.module.scss";
 import player from "../../styles/Player.module.scss";
-
 
 const formWaveSurferOptions = (ref) => ({
   container: ref,
@@ -172,6 +172,7 @@ const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackL
                             disabled={!trackLoaded}
                             track={selectTrack}
                             playRef={playRef}
+                            controlStyle={`${button.controll} ${helper._align__center}`}
                         />
                         <Box className={player.track__wrapper}>
                             <div 

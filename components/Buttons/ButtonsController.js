@@ -12,12 +12,12 @@ import { downloadFile } from "../../api/downloadApi";
 import button from "../../styles/Button.module.scss";
 
 
-const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, trackId, track}) => {
+const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, track, controlStyle}) => {
     const router = useRouter()
 
     const shareBlock = share ? <ShareBlock trackId={track?.id}/> : null
     return (
-        <Box className={button.controll}>
+        <Box className={controlStyle}>
             <PlayButton 
                 handleClick={handlePlay} 
                 play={play} 
