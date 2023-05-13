@@ -57,6 +57,8 @@
 .wrapper {
     background-image: url("/img/sound-bg.png");
     padding-bottom: 10rem;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     @media (max-width: #{$md3 + px}) {
         padding-bottom: 3.5rem;
