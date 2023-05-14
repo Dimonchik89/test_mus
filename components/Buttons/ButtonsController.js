@@ -13,12 +13,12 @@ import button from "../../styles/Button.module.scss";
 import TimecodeBlock from "./TimecodeBlock";
 
 
-const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, track, controlStyle, timekodButton}) => {
+const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, track, controlStyle, timekodButton, openPatreonModal}) => {
     const router = useRouter()
 
     const shareBlock = share ? <ShareBlock trackId={track?.id}/> : null
 
-    const timekodBlock = timekodButton ? <TimecodeBlock/> : null;
+    const timekodBlock = timekodButton ? <TimecodeBlock openPatreonModal={openPatreonModal}/> : null;
 
     return (
         <Box className={controlStyle}>

@@ -15,7 +15,7 @@ import button from "../../../styles/Button.module.scss"
 import helper from "../../../styles/Helper.module.scss"
 import tracks from "../../../styles/Tracks.module.scss"
 
-const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay, trackLoaded, setTrackLoaded, stopAllTrack}) => {
+const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay, trackLoaded, setTrackLoaded, stopAllTrack, openPatreonModal}) => {
     const [share, setShare] = useState(false)
     const [activeStyle, setActiveStyle] = useState(tracks.item)
     const router = useRouter();
@@ -86,6 +86,7 @@ const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay,
                     track={track}
                     controlStyle={`${button.controll} ${helper._align__end}`}
                     timekodButton={true}
+                    openPatreonModal={openPatreonModal}
                 />
             </Box>
         </Box>

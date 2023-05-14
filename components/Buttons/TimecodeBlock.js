@@ -2,38 +2,34 @@ import { Box } from "@mui/material";
 
 import button from "../../styles/Button.module.scss";
 
-const TimecodeBlock = () => {
+const TimecodeBlock = ({openPatreonModal}) => {
 
     return (
         <Box className={button.times__block}>
-            <a 
-                href={process.env.NEXT_PUBLIC_PARTEON} 
+            <button 
+                onClick={openPatreonModal}
                 className={button.time}
-                target="_blank"
             >
                 15
-            </a>
-            <a 
-                href={process.env.NEXT_PUBLIC_PARTEON} 
+            </button>
+            <button 
+                onClick={openPatreonModal}
                 className={button.time}
-                target="_blank"
             >
                 30
-            </a>
-            <a 
-                href={process.env.NEXT_PUBLIC_PARTEON} 
+            </button>
+            <button
+                onClick={openPatreonModal} 
                 className={button.time}
-                target="_blank"
             >
                 60
-            </a>
-            <a 
-                href={process.env.NEXT_PUBLIC_PARTEON} 
+            </button>
+            <button
+                onClick={openPatreonModal} 
                 className={`${button.time} ${button.loop}`}
-                target="_blank"
             >
                 loops
-            </a>
+            </button>
         </Box>
     )
 }
