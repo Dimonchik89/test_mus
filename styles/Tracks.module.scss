@@ -95,6 +95,10 @@
         }
     }
 
+    .item__active {
+        box-shadow: 0 0 .7rem $yellow;
+    }
+
     .img {
         padding-bottom: 7.7rem;
         flex: 0 0 7.7rem;

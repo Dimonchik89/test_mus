@@ -10,12 +10,16 @@ import { useRouter } from "next/router";
 import { downloadFile } from "../../api/downloadApi";
 
 import button from "../../styles/Button.module.scss";
+import TimecodeBlock from "./TimecodeBlock";
 
 
-const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, track, controlStyle}) => {
+const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, track, controlStyle, timekodButton}) => {
     const router = useRouter()
 
     const shareBlock = share ? <ShareBlock trackId={track?.id}/> : null
+
+    const timekodBlock = timekodButton ? <TimecodeBlock/> : null;
+
     return (
         <Box className={controlStyle}>
             <PlayButton 
@@ -37,6 +41,7 @@ const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disab
                 </button>
                 {shareBlock}
             </Box>
+            {timekodBlock}
         </Box>
     )
 }

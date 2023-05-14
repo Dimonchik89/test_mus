@@ -6,7 +6,7 @@ import { selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackLoaded, s
 import { bindActionCreators } from "@reduxjs/toolkit";
 import { createStructuredSelector } from 'reselect';
 import { connect } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ButtonsController from "../../Buttons/ButtonsController";
 import { trackLoaded } from "../../../store/tracks";
 import { useRouter } from "next/router";
@@ -17,6 +17,7 @@ import tracks from "../../../styles/Tracks.module.scss"
 
 const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay, trackLoaded, setTrackLoaded, stopAllTrack}) => {
     const [share, setShare] = useState(false)
+    const [activeStyle, setActiveStyle] = useState(tracks.item)
     const router = useRouter();
 
     const trackRouter = () => {
@@ -62,8 +63,16 @@ const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay,
         }
     }
 
+    useEffect(() => {
+        if(+router.query?.sound === track?.id) {
+            setActiveStyle(`${tracks.item} ${tracks.item__active}`)
+        } else {
+            setActiveStyle(tracks.item)
+        }
+    }, [router.query?.sound])
+
     return (
-        <Box className={tracks.item}>
+        <Box className={activeStyle}>
             <TrackItemLogo handleSelect={handleSelectTrack} img={track?.img}/>
             <Box className={tracks.content}>
                 <TrackItemHeader handleSelect={handleSelectTrack} name={track.name}/>
@@ -76,6 +85,7 @@ const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay,
                     disabled={selectTrack?.id === track?.id ? !trackLoaded :false}
                     track={track}
                     controlStyle={`${button.controll} ${helper._align__end}`}
+                    timekodButton={true}
                 />
             </Box>
         </Box>
