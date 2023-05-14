@@ -15,7 +15,7 @@ const Tracks = () => {
                         component="h1"
                         className={tracks.tracks__title}
                     >
-                        New tracks
+                        New Tracks
                     </Typography>
                     <TrackList/>
                     <Paginations/>

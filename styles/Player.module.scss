@@ -10,6 +10,7 @@
     padding: 1rem 0;
     transform: translateY(0);
     transition: all .5s ease 0s;
+    border-top: 1px solid $yellow;
 
     @supports (-webkit-backdrop-filter: blur(62px)) or (backdrop-filter: blur(62px)) {
         background: rgba(0, 0, 0, 0.4);

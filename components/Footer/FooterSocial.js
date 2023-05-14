@@ -13,7 +13,7 @@ const FooterSocial = () => {
         <Box className={footer.social__block}>
             <a 
                 className={footer.social__link}
-                href="https://www.npmjs.com/package/react-share" 
+                href={process.env.NEXT_PUBLIC_INSTAGRAM}
                 target="_blank"
             >
                 <InstagramIcon
@@ -22,7 +22,7 @@ const FooterSocial = () => {
             </a>
             <a 
                 className={footer.social__link}
-                href="https://www.npmjs.com/package/react-share" 
+                href={process.env.NEXT_PUBLIC_FACEBOOK}
                 target="_blank"
             >
                 <FacebookIcon
@@ -31,7 +31,7 @@ const FooterSocial = () => {
             </a>
             <a 
                 className={footer.social__link}
-                href="https://www.npmjs.com/package/react-share" 
+                href={process.env.NEXT_PUBLIC_TWITTER}
                 target="_blank"
             >
                 <TwitterIcon
@@ -40,7 +40,7 @@ const FooterSocial = () => {
             </a>
             <a 
                 className={footer.social__link}
-                href="https://www.npmjs.com/package/react-share" 
+                href={process.env.NEXT_PUBLIC_YOUTUBE} 
                 target="_blank"
             >
                 <YouTubeIcon
