@@ -74,9 +74,17 @@
         transition: all .3s ease 0s;
         cursor: pointer;
 
+        svg {
+            transition: all .3s ease 0s;
+        }
+
         @media (any-hover: hover) {
             &:hover {
                 background-color: darken($yellow, 5%);
+
+                svg {
+                    color: $black;
+                }
             }
         }
     }

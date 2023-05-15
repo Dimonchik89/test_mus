@@ -29,7 +29,10 @@ const FormUser = ({handleSubmit}) => {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
-                <button type="submit">
+                <button 
+                    className={login.submit}
+                    type="submit"
+                >
                     Submit
                 </button>
             </form>

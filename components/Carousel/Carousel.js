@@ -85,13 +85,13 @@ const Carousel = ({categories}) => {
                             className={carousel.carousel__control}
                             ref={navigationPrevRef}  
                         >
-                            <ArrowBackIosNewIcon fontSize="large"/>
+                            <ArrowBackIosNewIcon fontSize="large" sx={{color: '#F2D22B'}}/>
                         </div>
                         <div 
                             className={carousel.carousel__control}
                             ref={navigationNextRef}  
                         >
-                            <ArrowForwardIosIcon fontSize="large"/>
+                            <ArrowForwardIosIcon fontSize="large" sx={{color: '#F2D22B'}}/>
                         </div>
                     </Box>
             </Box>

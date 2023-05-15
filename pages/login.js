@@ -8,6 +8,7 @@ import jwt_decode from "jwt-decode"
 import { setUser } from "../store/user"
 import { bindActionCreators } from '@reduxjs/toolkit';
 import { connect } from "react-redux";
+import { setCookie } from "cookies-next";
 
 import main from "../styles/Main.module.scss"
 import login from "../styles/Login.module.scss"
@@ -30,6 +31,7 @@ const Login = ({setUser}) => {
             const {token} = await response.data
             const user = jwt_decode(token)
             setUser(user)
+            setCookie("accessToken", token)
         } catch(err) {
             setErrorMessage(err?.response?.data?.message)
             openErrorModal()

@@ -13,7 +13,9 @@ import { connect } from "react-redux";
 import { setTracks, setAllTracksQty, setSelectTrack, setTrackLoaded, selectTrack } from "../store/tracks";
 import { useRouter } from "next/router";
 import { createStructuredSelector } from 'reselect';
-import { getCookies, setCookie     } from 'cookies-next';
+import { setCookie, getCookie } from 'cookies-next';
+import jwt_decode from "jwt-decode";
+import { setUser } from "../store/user/userSlice";
 
 import main from "../styles/Main.module.scss";
 import Footer from "../components/Footer/Footer";
@@ -21,7 +23,7 @@ import ModalFix from "../components/Modal/ModalFix";
 import ModalError from "../components/Modal/ModalError";
 import useChangeModalHook from "../hooks/useChangeModalHook";
 
-const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, firstLoad, setSelectTrack, setTrackLoaded, selectTrack}) => {
+const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, firstLoad, setSelectTrack, setTrackLoaded, selectTrack, checkRole, setUser}) => {
   const router = useRouter()
   const [firstLoading, setFirstLoading] = useState(true)
   const {fixModal, openFixModal, closeFixModal, errorModal, openErrorModal, closeErrorModal} = useChangeModalHook()
@@ -63,9 +65,14 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
     setFirstLoading(false)
   }
 
-  // useEffect(() => {
-  //   console.log('accessToken', accessToken)
-  // }, [accessToken])
+  useEffect(() => {
+    if(checkRole?.token) {
+      setCookie("accessToken", checkRole?.token)
+      const user = jwt_decode(checkRole?.token)
+      setUser(user)
+      console.log('user', user);
+    }
+  }, [checkRole])
 
   return (
     <Box>
@@ -116,10 +123,13 @@ Home.getInitialProps = async ({req, res, query}) => {
       tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, page: query?.page}})
     }
   }
-  const accessTokenInCookies = getCookies({req, res}).token
-  console.log('accessTokenInCookies', accessTokenInCookies);
-  // const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/user/auth`, {headers: {authorization: `Bearer ${accessTokenInCookies}`}})
-  // const accessToken = response.data
+  
+  const responseChekRole = await fetch(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/user/auth`, {
+    headers: {
+      'authorization': `${unescape(encodeURIComponent(`Bearer ${getCookie('accessToken', { req, res })}`))}`
+    }
+  })
+  const checkRole = await responseChekRole.json()
 
   if(req && query.music) {
     firstLoad = false
@@ -129,6 +139,7 @@ Home.getInitialProps = async ({req, res, query}) => {
       categories: categories.data,
       tracks: tracks.data,
       firstLoad,
+      checkRole
   }
 }
 
@@ -142,6 +153,7 @@ const mapDispatchToProps = dispatch => ({
   setAllTracksQty: bindActionCreators(setAllTracksQty, dispatch),
   setSelectTrack: bindActionCreators(setSelectTrack, dispatch),
   setTrackLoaded: bindActionCreators(setTrackLoaded, dispatch),
+  setUser: bindActionCreators(setUser, dispatch),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
