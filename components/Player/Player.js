@@ -12,6 +12,8 @@ import { useRouter } from "next/router";
 import button from "../../styles/Button.module.scss"
 import helper from "../../styles/Helper.module.scss";
 import player from "../../styles/Player.module.scss";
+import useChangeModalHook from "../../hooks/useChangeModalHook";
+import ModalDownload from "../Modal/Download/ModalDownload";
 
 const formWaveSurferOptions = (ref) => ({
   container: ref,
@@ -42,6 +44,7 @@ const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackL
     const [playerStyle, setPlayerStyle] = useState(`${player.body} ${player._active}`)   
     const router = useRouter() 
     const playRef = useRef(null)
+    const { downloadModal, closeDownloadModal, openDownloadModal } = useChangeModalHook()
     
     useEffect(() => {
         const create = async () => {
@@ -173,6 +176,7 @@ const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackL
                             track={selectTrack}
                             playRef={playRef}
                             controlStyle={`${button.controll} ${helper._align__center}`}
+                            openDownload={openDownloadModal}
                         />
                         <Box className={player.track__wrapper}>
                             <div 
@@ -186,6 +190,11 @@ const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackL
                     </Box>
                 </Box>
             </Box>
+            <ModalDownload 
+                show={downloadModal} 
+                handleClose={closeDownloadModal}
+                trackId={selectTrack?.id}
+            />
         </Box>
     )
 }

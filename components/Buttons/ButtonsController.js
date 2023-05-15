@@ -8,17 +8,26 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
 import { downloadFile } from "../../api/downloadApi";
-
-import button from "../../styles/Button.module.scss";
 import TimecodeBlock from "./TimecodeBlock";
 
+import button from "../../styles/Button.module.scss";
 
-const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, track, controlStyle, timekodButton, openPatreonModal}) => {
+const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, track, controlStyle, timekodButton, openPatreonModal, openDownload}) => {
     const router = useRouter()
 
     const shareBlock = share ? <ShareBlock trackId={track?.id}/> : null
 
     const timekodBlock = timekodButton ? <TimecodeBlock openPatreonModal={openPatreonModal}/> : null;
+
+    const handleDownload = (e) => {
+        downloadFile({e, track})
+            .then(data => {
+                openDownload()
+            })
+            .catch(e => {
+                console.log(e);
+            })
+    }
 
     return (
         <Box className={controlStyle}>
@@ -35,7 +44,7 @@ const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disab
                 <ShareButton handleShare={handleShare} share={share}/>
                 <button 
                     className={`${button.btn__download}`}
-                    onClick={(e) => downloadFile({e, track})}
+                    onClick={handleDownload}
                 >
                     <p>Download</p>
                 </button>

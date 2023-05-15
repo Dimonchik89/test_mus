@@ -1,28 +1,12 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
-import { useState } from "react";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { sendEmail } from "../../api/sendEmail";
+import useSendMailHook from "../../hooks/useSendMailHook";
 
 import modal from "../../styles/Modal.module.scss";
 
 const ModalFix = ({show, handleClose, openError}) => {
-    const [value, setValue] = useState("")
-
-    const handleSubit = async (e) => {
-        e.preventDefault()
-        console.log(value);
-
-        const response = await sendEmail(value)
-        if(response.status === 200) {
-            setValue("")
-            handleClose()
-        } else {
-            setValue("")
-            handleClose()
-            openError()
-        }
-    }
+    const {value, changeValue, handleSubit} = useSendMailHook(handleClose)
 
     return (
         <Modal
@@ -47,7 +31,7 @@ const ModalFix = ({show, handleClose, openError}) => {
                         <input
                             type="text"
                             value={value}
-                            onChange={e => setValue(e.target.value)}
+                            onChange={e => changeValue(e.target.value)}
                             placeholder="Youtube video link"
                             className={modal.fix__input}
                         />

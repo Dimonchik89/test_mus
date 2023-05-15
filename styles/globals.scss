@@ -81,3 +81,19 @@ body {
         }
     }
 }
+
+.d__flex {
+    display: flex;
+}
+
+.align__center {
+    align-items: center;
+}
+
+.justify__center {
+    justify-content: center;
+}
+
+.space__between {
+    justify-content: space-between;
+}

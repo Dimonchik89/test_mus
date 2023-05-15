@@ -4,6 +4,7 @@ const useChangeModalHook = () => {
   const [fixModal, setFixModal] = useState(false)
   const [errorModal, setErrorModal] = useState(false)
   const [patreonModal, setPatreonModal] = useState(false)
+  const [downloadModal, setDownloadModal] = useState(false)
 
   const openFixModal = () => {
     setFixModal(true)
@@ -29,6 +30,14 @@ const useChangeModalHook = () => {
     setPatreonModal(false)
   }
 
-  return {fixModal, errorModal, openFixModal, closeFixModal, openErrorModal, closeErrorModal, patreonModal, openPatreonModal, closePatreonModal}
+  const openDownloadModal = () => {
+    setDownloadModal(true)
+  }
+
+  const closeDownloadModal = () => {
+    setDownloadModal(false)
+  }
+
+  return {fixModal, errorModal, openFixModal, closeFixModal, openErrorModal, closeErrorModal, patreonModal, openPatreonModal, closePatreonModal, downloadModal, openDownloadModal, closeDownloadModal}
 }
 export default useChangeModalHook;

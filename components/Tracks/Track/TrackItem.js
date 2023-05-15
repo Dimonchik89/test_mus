@@ -10,15 +10,19 @@ import { useState, useEffect } from "react";
 import ButtonsController from "../../Buttons/ButtonsController";
 import { trackLoaded } from "../../../store/tracks";
 import { useRouter } from "next/router";
+import ModalDownload from "../../Modal/Download/ModalDownload";
+import useChangeModalHook from "../../../hooks/useChangeModalHook";
 
 import button from "../../../styles/Button.module.scss"
 import helper from "../../../styles/Helper.module.scss"
 import tracks from "../../../styles/Tracks.module.scss"
 
+
 const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay, trackLoaded, setTrackLoaded, stopAllTrack, openPatreonModal}) => {
     const [share, setShare] = useState(false)
     const [activeStyle, setActiveStyle] = useState(tracks.item)
     const router = useRouter();
+    const { downloadModal, closeDownloadModal, openDownloadModal } = useChangeModalHook()
 
     const trackRouter = () => {
         router.push({
@@ -87,8 +91,14 @@ const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay,
                     controlStyle={`${button.controll} ${helper._align__end}`}
                     timekodButton={true}
                     openPatreonModal={openPatreonModal}
+                    openDownload={openDownloadModal}
                 />
             </Box>
+            <ModalDownload 
+                show={downloadModal} 
+                handleClose={closeDownloadModal}
+                trackId={track.id}
+            />
         </Box>
     )
 }

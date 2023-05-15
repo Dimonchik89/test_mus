@@ -10,7 +10,8 @@
     }
 
     @media (max-width: #{$md3 + px}) {
-        padding-bottom: 1rem;
+        padding-bottom: 2rem;
+        margin-top: 3rem;
     }
 
     .carousel__container {
