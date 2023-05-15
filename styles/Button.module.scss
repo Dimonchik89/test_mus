@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 2rem;
 
     svg {
         transition: all .3s ease 0s;
@@ -101,15 +102,16 @@
     margin-top: 1rem;
 }
 
-.btn__right {
+.btn__center {
     display: flex;
     position: relative;
+    margin-right: 2rem;
 }
 
 .times__block {
     display: flex;
 
-    @media (max-width: #{$md2 + px}) {
+    @media (max-width: #{$md1 + px}) {
         display: none;
     }
 
@@ -141,3 +143,8 @@
     }
 }
 
+.play__wrapper {
+    flex: 1 1 auto;
+    margin-right: 1rem;
+    display: flex;
+}

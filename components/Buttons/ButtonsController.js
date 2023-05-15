@@ -31,17 +31,19 @@ const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disab
 
     return (
         <Box className={controlStyle}>
-            <PlayButton 
-                handleClick={handlePlay} 
-                play={play} 
-                disabled={disabled}
-                playRef={playRef}
-                trackId={track?.id}
-            />
+            <Box className={button.play__wrapper}>
+                <PlayButton 
+                    handleClick={handlePlay} 
+                    play={play} 
+                    disabled={disabled}
+                    playRef={playRef}
+                    trackId={track?.id}
+                />
 
-            {!trackLoaded && +router.query.sound === track?.id ? <CircularProgress sx={{color: "#F2D22B", width: "30px !important", height: "30px !important"}}/> : null}
+                {!trackLoaded && +router.query.sound === track?.id ? <CircularProgress sx={{color: "#F2D22B", width: "30px !important", height: "30px !important"}}/> : null}
+            </Box>
 
-            <Box className={button.btn__right}>
+            <Box className={button.btn__center}>
                 <ShareButton handleShare={handleShare} share={share}/>
                 <button 
                     className={`${button.btn__download}`}
