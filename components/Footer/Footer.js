@@ -54,7 +54,7 @@ const Footer = ({openModal, closeModal}) => {
                             target="_blank" 
                             className={`${footer.link} ${footer.link__center}`}
                         >
-                            Trafics
+                            Tarifs
                         </a>
                         <Typography
                             className={footer.link}
