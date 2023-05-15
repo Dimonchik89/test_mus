@@ -49,8 +49,9 @@ const Footer = ({openModal, closeModal}) => {
                         >
                             Got a Claim? Fix it
                         </Typography>
-                        <a
-                            href={process.env.NEXT_PUBLIC_PARTEON}
+                        <a 
+                            href={process.env.NEXT_PUBLIC_PATREON} 
+                            target="_blank" 
                             className={`${footer.link} ${footer.link__center}`}
                         >
                             Trafics
