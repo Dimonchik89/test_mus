@@ -23,17 +23,15 @@ const Carousel = ({categories}) => {
     const saveCarouselPosition = () => {
         const position = +swiperRef.current.childNodes[0].style.transform.split("(").pop().split(",")[0].split("p")[0]
         localStorage.setItem("carouselScroll", position)
-        console.log(swiperRef.current.childNodes[0].style) 
     }
 
     useEffect(() => {
         const currentPosition = localStorage.getItem("carouselScroll")
-        // if(router.query.category) {
-        //     swiperRef.current.childNodes[0].style.transform = "translate3d(" + currentPosition + "px, 0px, 0px"
-        // }
-        setTimeout(() => {
-            swiperRef.current.childNodes[0].style.transform = "translate3d(" + currentPosition + "px, 0px, 0px"
-        }, 1000)
+        if(router.query?.categoryId) {
+            setTimeout(() => {
+                swiperRef.current.childNodes[0].style.transform = "translate3d(" + currentPosition + "px, 0px, 0px"
+            }, 1000)
+        }
     }, [])
 
     const carouselContent = categories?.map((item, i) => (
