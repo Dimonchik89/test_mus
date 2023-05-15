@@ -31,8 +31,8 @@
     }
 
     .carousel__title {
-        font-size: 3.4rem;
-        font-weight: 900;
+        font-size: 3rem;
+        font-weight: 500;
         line-height: 125%;
         position: absolute;
         top: 0;
@@ -40,11 +40,11 @@
         padding: 1rem 0 0 2rem;
 
         @media (max-width:#{$md2+ px}) {
-            font-size: 3rem;
+            font-size: 2.8rem;
         }
 
         @media (max-width: #{$md4 + px}) {
-            font-size: 3.2rem;
+            font-size: 2.6rem;
         }
     }
 

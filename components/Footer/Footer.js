@@ -49,6 +49,12 @@ const Footer = ({openModal, closeModal}) => {
                         >
                             Got a Claim? Fix it
                         </Typography>
+                        <a
+                            href={process.env.NEXT_PUBLIC_PARTEON}
+                            className={`${footer.link} ${footer.link__center}`}
+                        >
+                            Trafics
+                        </a>
                         <Typography
                             className={footer.link}
                             onClick={() => router.push("/faq")}

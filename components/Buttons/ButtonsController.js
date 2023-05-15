@@ -12,12 +12,12 @@ import TimecodeBlock from "./TimecodeBlock";
 
 import button from "../../styles/Button.module.scss";
 
-const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, track, controlStyle, timekodButton, openPatreonModal, openDownload}) => {
+const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disabled, trackLoaded, track, controlStyle, timecodButton, openPatreonModal, openDownload}) => {
     const router = useRouter()
 
     const shareBlock = share ? <ShareBlock trackId={track?.id}/> : null
 
-    const timekodBlock = timekodButton ? <TimecodeBlock openPatreonModal={openPatreonModal}/> : null;
+    const timecodBlock = timecodButton ? <TimecodeBlock openPatreonModal={openPatreonModal}/> : null;
 
     const handleDownload = (e) => {
         downloadFile({e, track})
@@ -36,6 +36,7 @@ const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disab
                 play={play} 
                 disabled={disabled}
                 playRef={playRef}
+                trackId={track?.id}
             />
 
             {!trackLoaded && +router.query.sound === track?.id ? <CircularProgress sx={{color: "#F2D22B", width: "30px !important", height: "30px !important"}}/> : null}
@@ -50,7 +51,7 @@ const ButtonsController = ({playRef, handlePlay, play, handleShare, share, disab
                 </button>
                 {shareBlock}
             </Box>
-            {timekodBlock}
+            {timecodBlock}
         </Box>
     )
 }

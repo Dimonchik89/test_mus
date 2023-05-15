@@ -17,13 +17,6 @@ const Main = () => {
                         >
                             ROYALTY FREE MUSIC FOR VIDEO WITHOUT CLAIMS
                         </Typography>
-                        <Typography
-                            variant="h2"
-                            component="h2"
-                            className={main.label__subtitle}
-                        >
-                            100% Claim-Free for any Platforms. Find Your Royalty Free Music Now!
-                        </Typography>
                     </Box>
                 </Box>
             </Box>

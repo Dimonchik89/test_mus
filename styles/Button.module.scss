@@ -48,6 +48,14 @@
     }
 }
 
+._active {
+    background-color: $yellow;
+    
+    svg {
+        color: $black;
+    }
+}
+
 .share__btn {
     position: relative;
     z-index: 2;

@@ -89,7 +89,7 @@ const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay,
                     disabled={selectTrack?.id === track?.id ? !trackLoaded :false}
                     track={track}
                     controlStyle={`${button.controll} ${helper._align__end}`}
-                    timekodButton={true}
+                    timecodButton={true}
                     openPatreonModal={openPatreonModal}
                     openDownload={openDownloadModal}
                 />
