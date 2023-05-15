@@ -13,7 +13,7 @@
     }
 
     .main__label {
-        padding-top: 16.7rem;
+        padding-top: 12.7rem;
         padding-bottom: 3rem;
         text-align: center;
     
@@ -37,7 +37,7 @@
         }
 
         .label__subtitle {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
 
             @media (max-width: #{$md1 + px}) {
                 font-size: 2.2rem;

@@ -13,6 +13,7 @@ import { connect } from "react-redux";
 import { setTracks, setAllTracksQty, setSelectTrack, setTrackLoaded, selectTrack } from "../store/tracks";
 import { useRouter } from "next/router";
 import { createStructuredSelector } from 'reselect';
+import { getCookies, setCookie     } from 'cookies-next';
 
 import main from "../styles/Main.module.scss";
 import Footer from "../components/Footer/Footer";
@@ -61,6 +62,10 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
   const changeFirstLoad = () => {
     setFirstLoading(false)
   }
+
+  // useEffect(() => {
+  //   console.log('accessToken', accessToken)
+  // }, [accessToken])
 
   return (
     <Box>
@@ -111,6 +116,10 @@ Home.getInitialProps = async ({req, res, query}) => {
       tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, page: query?.page}})
     }
   }
+  const accessTokenInCookies = getCookies({req, res}).token
+  console.log('accessTokenInCookies', accessTokenInCookies);
+  // const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/user/auth`, {headers: {authorization: `Bearer ${accessTokenInCookies}`}})
+  // const accessToken = response.data
 
   if(req && query.music) {
     firstLoad = false

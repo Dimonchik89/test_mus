@@ -48,11 +48,11 @@
     }
   
     .tracks__title {
-        font-size: 3.8rem;
-        font-weight: 700;
+        font-size: 3rem;
+        font-weight: 500;
         line-height: 120%;
         text-align: center;
-        text-transform: capitalize;
+        text-transform: uppercase;
 
         @media (max-width: #{$md2 + px}) {
             font-size: 3rem;
