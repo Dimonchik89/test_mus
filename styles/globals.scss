@@ -45,6 +45,25 @@ html {
 }
 
 body {
+
+    @media (any-hover: hover) {
+        &::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $gray;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $yellow;
+            border-radius: .5rem;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: darken($yellow, 10%);
+        }
+    }
 }
 
 ._container {
