@@ -17,6 +17,13 @@ const Main = () => {
                         >
                             ROYALTY FREE MUSIC FOR VIDEO WITHOUT CLAIMS
                         </Typography>
+                        <Typography
+                            variant="h1"
+                            component="h1"
+                            className={`${main.label__title}`}
+                        >
+                            100% Claim-Free for any Platforms
+                        </Typography>
                     </Box>
                 </Box>
             </Box>

@@ -20,7 +20,7 @@ const ModalFix = ({show, handleClose, openError}) => {
                         component="h2"
                         align="center"
                     >
-                        If you used our music in your video then just put the link to the video bellow and associated copyright claims be relesed Free plan allows you to release 1 claim per month.
+                        If you used our music in your video then just put the link to the video bellow and associated copyright claims be relesed. Free plan allows you to release 1 claim per month.
                     </Typography>
                     <Typography
                         variant="h4" 
