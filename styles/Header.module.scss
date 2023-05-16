@@ -47,3 +47,24 @@
         width: 20rem;
     }
 }
+
+.admin {
+    background-color: blue;
+
+    .admin__body {
+        display: flex;
+        justify-content: space-around;
+        height: 6rem;
+    }
+
+    .button {
+        cursor: pointer;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: $white;
+    }
+
+    ._active {
+        color: $yellow;
+    }
+}

@@ -11,6 +11,8 @@ const Paginations = ({allTracksQty}) => {
 
     const allPages = Math.ceil(allTracksQty / +process.env.NEXT_PUBLIC_TRACKS_ON_PAGE)
 
+    console.log(allTracksQty);
+
     return (
         <Box className={paginations.wrapper}>
             <Pagination 
@@ -20,7 +22,7 @@ const Paginations = ({allTracksQty}) => {
                 color="primary"
                 onChange={(_, num) => {
                     router.push({
-                        pathname: "/",
+                        pathname: router.pathname,
                         query: {...router.query, page: num}
                     }, null, {scroll: true, shallow: false})
                 }}

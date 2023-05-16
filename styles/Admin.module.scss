@@ -1,0 +1,88 @@
+@import "./vars";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5rem 0 5rem;
+
+    .music__wrapper {
+        width: 100%;
+
+        .music__item {
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            border: 1px solid $gray;
+            color: $black;
+
+            .music__img {
+                width: 15rem;
+                height: 10rem;
+                object-fit: cover;
+            }
+
+            .text__container {
+                padding: 0 .5rem;
+                width: 20rem;
+            }
+
+            .description__container {
+                width: 50rem;
+                margin-right: 1.5rem;
+                padding: 0 .5rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis
+            }
+        }
+    }
+}
+
+.category__container {
+    margin-top: 3rem;
+
+    .category__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .category__item {
+            width: 75%;
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            border-bottom: 1px solid $gray;
+            border-top: 1px solid $gray;
+            padding: 1.5rem 0;
+
+            .image {
+                width: 8rem;
+
+            }
+
+            .text {
+                flex-grow: 1;
+                text-align: center;
+                font-size: 2.4rem;
+                text-transform: capitalize;
+            }
+            
+        }
+    }
+}
+
+.header__item {
+    margin: 0 20rem;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.header__item_active {
+    color: $yellow;
+}
+
+.category__item {
+    color: $black;
+}

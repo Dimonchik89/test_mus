@@ -1,0 +1,18 @@
+@import "./vars";
+
+.error {
+    color: #900;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.page {
+    background: url("../public/img/header-bg.png") center / cover no-repeat;
+    height: 100vh;
+
+    .inner {
+        height: 90vh;
+    }
+}

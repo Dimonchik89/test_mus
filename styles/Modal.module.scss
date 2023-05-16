@@ -290,3 +290,22 @@
         color: $white;
     }
 }
+
+.form__update {
+    color: $black;
+
+    .img__wrapper {
+        margin: 2rem 0;    
+
+        .img {
+            margin: 0 auto;
+            width: 80%;
+            height: 40rem;
+            background-size: cover;
+        }
+
+        .file {
+            display: none;
+        }
+    }
+}
