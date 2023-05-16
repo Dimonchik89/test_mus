@@ -14,7 +14,7 @@ const ModalDownloadHeader = () => {
                 className={modal.download__title}
                 align="center"
             >
-                Protect you video and release copyright claim
+                Few steps to protect you video and release copyright claim
             </Typography>
         </Box>
     )

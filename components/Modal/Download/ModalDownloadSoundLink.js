@@ -79,7 +79,7 @@ const ModalDownloadSoundLink = ({trackId}) => {
                         >
                             <ContentCopyIcon 
                                 fontSize="large"
-                                sx={{color: "white"}}
+                                sx={{color: "#F2D22B"}}
                             />
                         </IconButton>
                     </Box>
