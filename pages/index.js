@@ -103,25 +103,28 @@ Home.getInitialProps = async ({req, res, query}) => {
   let firstLoad = true;
   let tracks;  
   if(!!req) {
-    if(!query?.categoryId && !query?.page) {
-      tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {sound: query?.sound}})
-    } else if(query?.categoryId && !query?.page) {
-      tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, sound: query?.sound}})
-    } else if(!query?.categoryId && query?.page) {
-      tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {page: query?.page, sound: query?.sound}})
-    } else {
-      tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, page: query?.page, sound: query?.sound}})
-    }
+    // if(!query?.categoryId && !query?.page) {
+    //   tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {sound: query?.sound}})
+    // } else if(query?.categoryId && !query?.page) {
+    //   tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, sound: query?.sound}})
+    // } else if(!query?.categoryId && query?.page) {
+    //   tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {page: query?.page, sound: query?.sound}})
+    // } else {
+    //   tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, page: query?.page, sound: query?.sound}})
+    // }
+    tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {...query}})
   } else {
-    if(!query?.categoryId && !query?.page) {
-      tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`)
-    } else if(query?.categoryId && !query?.page) {
-      tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId}})
-    } else if(!query?.categoryId && query?.page) {
-      tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {page: query?.page}})
-    } else {
-      tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, page: query?.page}})
-    }
+    const {sound, ...tailQuery} = query
+    tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {...tailQuery}})
+    // if(!query?.categoryId && !query?.page) {
+    //   tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`)
+    // } else if(query?.categoryId && !query?.page) {
+    //   tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId}})
+    // } else if(!query?.categoryId && query?.page) {
+    //   tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {page: query?.page}})
+    // } else {
+    //   tracks = await axios.get(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/music`, {params: {categoryId: query?.categoryId, page: query?.page}})
+    // }
   }
   
   const responseChekRole = await fetch(`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}api/user/auth`, {

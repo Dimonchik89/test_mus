@@ -1,16 +1,27 @@
 import { Box } from "@mui/material";
 import search from "../../styles/Search.module.scss";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Search = () => {
     const [text, setText] = useState("")
+    const router = useRouter()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(text);
-        setText("")
+        router.push({
+            pathname: "/",
+            query: {
+                keywords: text
+            }
+        }, null, {scroll: false, shallow: false})
     }
+
+    useEffect(() => {
+        setText(router.query?.keywords || "")
+    }, [router.query?.keywords])
 
     const handleChange = (value) => {
         setText(value)
@@ -33,7 +44,7 @@ const Search = () => {
                     className={search.search__submit}
                     type="submit"
                 >
-                    <ArrowForwardIcon sx={{color: "#fff"}} fontSize="large"/>
+                    <ArrowForwardIcon fontSize="large"/>
                 </button>
             </form>
         </Box>

@@ -53,6 +53,10 @@
     }
 
     .search__submit {
+        cursor: pointer;
 
+        svg {
+            color: $white;
+        }
     }
 }
