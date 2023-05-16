@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material"
+import { Box, Button, Container } from "@mui/material"
 import HeaderAdmin from "../../components/Header/HeaderAdmin"
 import { useEffect, useState } from "react"
 import { getCookie, setCookie } from "cookies-next"
@@ -78,7 +78,7 @@ const AdminSound = ({checkRole, music, categories, tracks, allTracksQty, setTrac
     return (
         <Box>
             <HeaderAdmin/>
-            <Box className="">
+            <Container maxWidth="xl">
                 <Box className={admin.container}>
                     <Box>
                         <Button 
@@ -93,7 +93,7 @@ const AdminSound = ({checkRole, music, categories, tracks, allTracksQty, setTrac
                         {content}
                     </Box>
                 </Box>
-            </Box>
+            </Container>
             <Box sx={{background: "#000", padding: "1rem 0"}}>
                 <Paginations allTracksQty={allTracksQty}/>
             </Box>

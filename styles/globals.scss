@@ -105,6 +105,10 @@ body {
     display: flex;
 }
 
+.direction__column {
+    flex-direction: column;
+}
+
 .align__center {
     align-items: center;
 }

@@ -145,7 +145,7 @@ const AdminMusicItem = ({music, categories}) => {
                 />
                 <Box 
                     style={{padding: "0 .5rem"}}
-                    className={`${helper.d__flex} ${helper.direction__column}`}
+                    className={`d__flex direction__column`}
                 >
                     <Button
                         variant="outlined"
