@@ -18,7 +18,7 @@ const AdminCategory = ({ categories, setCategories, serverCategories, errorCode 
         const [showModal, setShowModal] = useState(false)
     const [showAlert, setShowAlert] = useState({show: false, status: null, text: ""})
     const router = useRouter()
-    const { postData } = useHttp('/category')
+    const { postData } = useHttp('api/category')
 
     useEffect(() => {
         setCategories(serverCategories)

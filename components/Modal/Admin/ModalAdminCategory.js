@@ -10,7 +10,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  height: 600,
+  height: 650,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -19,6 +19,7 @@ const style = {
 
 import helper from "../../../styles/Helper.module.scss"
 import modal from "../../../styles/Modal.module.scss"
+import error from "../../../styles/Error.module.scss"
 
 const ModalAdminCategory = ({open, handleClose, handleOpenAlert, nameValue, imgValue, serverFunc, buttonTitle}) => {
     const file = useRef(null)

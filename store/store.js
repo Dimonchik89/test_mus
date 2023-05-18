@@ -9,7 +9,8 @@ const store = configureStore({
         tracks,
         user
     },
-    middleware: getDefaultMiddleware => getDefaultMiddleware()
+    middleware: getDefaultMiddleware => getDefaultMiddleware(),
+    devTools: process.env.NODE_ENV !== 'production',
 })
 
 export default store;

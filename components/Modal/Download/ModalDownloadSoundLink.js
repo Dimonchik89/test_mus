@@ -21,9 +21,9 @@ const ModalDownloadSoundLink = ({trackId}) => {
     const copyLink = async (e) => {
         try {
             if(router.query?.sound && router.query?.sound == trackId) {
-                await navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_SITE_PATH}?${soundQuery}`)
+                await navigator.clipboard.writeText(`Song: The Temptation of a String \n Music provided by TuneBox \n ${process.env.NEXT_PUBLIC_SITE_PATH}?${soundQuery}`)
             } else {
-                await navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_SITE_PATH}?${queryWithoutSound}&sound=${trackId}`)
+                await navigator.clipboard.writeText(`Song: The Temptation of a String \n Music provided by TuneBox \n ${process.env.NEXT_PUBLIC_SITE_PATH}?${queryWithoutSound}&sound=${trackId}`)
             }
             setCopyText('Copied!');
             setShowSnack(true)
