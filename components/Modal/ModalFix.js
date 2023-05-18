@@ -22,12 +22,17 @@ const ModalFix = ({show, handleClose, openError}) => {
                     >
                         If you used our music in your video then just put the link to the video bellow and associated copyright claims be relesed. Free plan allows you to release 1 claim per month.
                     </Typography>
-                    <Typography
-                        variant="h4" 
-                        component="h2"
+                    {/* <Typography
+                        className={modal.download__text}
                         align="center"
                     >
-                        If you need additional 15, 30, or 60-second versions and loops in ultra-quality format, as well as unlimited claims release for your videos, please check our tariffs
+                        To get an 
+                        <Typography sx={{fontWeight: "700", fontSize: "1.5rem"}} component="span"> additional </Typography>
+                        versions and loops in 
+                        <Typography sx={{fontWeight: "700", fontSize: "1.5rem"}} component="span"> ultra-quality format</Typography>
+                        , as well as 
+                        <Typography sx={{fontWeight: "700", fontSize: "1.5rem"}} component="span"> unlimited claims release  </Typography>
+                        for your videos, check our tariffs
                     </Typography>
                     <Typography
                         variant="h4" 
@@ -37,7 +42,7 @@ const ModalFix = ({show, handleClose, openError}) => {
                         <a className={modal.link} href={process.env.NEXT_PUBLIC_PATREON} target="_blank">
                             here
                         </a>
-                    </Typography>
+                    </Typography> */}
                     <form
                         onSubmit={handleSubit}
                         className={modal.form}
@@ -58,6 +63,29 @@ const ModalFix = ({show, handleClose, openError}) => {
                             Submit
                         </Button>
                     </form>
+                    <Typography
+                        variant="h4" 
+                        component="h2"
+                        align="center"
+                        sx={{marginTop: "1.5rem"}}
+                    >
+                        To get an 
+                        <Typography sx={{fontWeight: "700", fontSize: "2.3rem"}} component="span"> additional </Typography>
+                        versions and loops in 
+                        <Typography sx={{fontWeight: "700", fontSize: "2.3rem"}} component="span"> ultra-quality format</Typography>
+                        , as well as 
+                        <Typography sx={{fontWeight: "700", fontSize: "2.3rem"}} component="span"> unlimited claims release  </Typography>
+                        for your videos, check our tariffs
+                    </Typography>
+                    <Typography
+                        variant="h4" 
+                        component="h2"
+                        align="center"
+                    >
+                        <a className={modal.link} href={process.env.NEXT_PUBLIC_PATREON} target="_blank">
+                            here
+                        </a>
+                    </Typography>
                 </Box>
             </Box>
         </Modal>

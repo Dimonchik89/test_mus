@@ -10,13 +10,19 @@ const ModalDownloadPatreon = () => {
                 className={modal.download__text}
                 align="center"
             >
-                If you used our music in your video then just put the link to the video above and the associated copyright claims be relesed. Free plan allows you to release 1 claim per month.
+                Free plan allows you to release 1 claim per month.
             </Typography>
             <Typography
                 className={modal.download__text}
                 align="center"
             >
-                If you need additional 15, 30, or 60-second versions and loops in ultra-quality format, as well as unlimited claims release for your videos, please check our tariffs 
+                To get an 
+                <Typography sx={{fontWeight: "700", fontSize: "1.5rem"}} component="span"> additional </Typography>
+                versions and loops in 
+                <Typography sx={{fontWeight: "700", fontSize: "1.5rem"}} component="span"> ultra-quality format</Typography>
+                , as well as 
+                <Typography sx={{fontWeight: "700", fontSize: "1.5rem"}} component="span"> unlimited claims release  </Typography>
+                for your videos, check our tariffs
             </Typography>
             <Typography
                 className={modal.download__text}

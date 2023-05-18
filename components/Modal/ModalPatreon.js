@@ -16,7 +16,7 @@ const ModalPatreon = ({show, handleClose}) => {
                         component="h2"
                         align="center"
                     >         
-                        To get an additional 15, 30, or 60-second versions and loops in ultra-quality format, as well as unlimited claims release for your videos, please check our tariffs 
+                        To get an additional versions and loops in ultra-quality format, as well as unlimited claims release for your videos, please check our tariffs 
                     </Typography>
                     <Typography
                         variant="h4" 
