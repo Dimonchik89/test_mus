@@ -12,13 +12,19 @@ import { connect } from "react-redux";
 
 import carousel from "../../styles/Carousel.module.scss";
 
-const arr = ["title 1", "title 2", "title 3", "title 4", "title 5", "title 6", "title 7", "title 8"]
+// const arr = ["title 1", "title 2", "title 3", "title 4", "title 5", "title 6", "title 7", "title 8"]
 
 const Carousel = ({categories}) => {
     const navigationPrevRef = useRef(null)
     const navigationNextRef = useRef(null)
     const swiperRef = useRef(null)
     const router = useRouter()
+    const {pathname, query} = router
+
+    useEffect(() => {
+        console.log("query", query);
+        console.log("pathname", pathname);
+    }, [pathname, query])
 
     const saveCarouselPosition = () => {
         const position = +swiperRef.current.childNodes[0].style.transform.split("(").pop().split(",")[0].split("p")[0]
@@ -27,12 +33,15 @@ const Carousel = ({categories}) => {
 
     useEffect(() => {
         const currentPosition = localStorage.getItem("carouselScroll")
+        console.log("currentPosition", !!query);
         if(router.query?.categoryId) {
             setTimeout(() => {
                 swiperRef.current.childNodes[0].style.transform = "translate3d(" + currentPosition + "px, 0px, 0px"
             }, 1000)
+        }else {
+            swiperRef.current.childNodes[0].style.transform = "translate3d(" + 0 + "px, 0px, 0px"
         }
-    }, [])
+    }, [query])
 
     const carouselContent = categories?.map((item, i) => (
         <SwiperSlide key={i}>

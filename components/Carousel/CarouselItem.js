@@ -7,7 +7,7 @@ const CarouselItem = ({title, link, img}) => {
     const router = useRouter()
     const activeCategory = router.query.categoryId
     const activeClass = activeCategory == link ? carousel.carousel__card_active : "";
-    const {page, ...tailQuery} = router.query;
+    const {page, keywords, ...tailQuery} = router.query;
 
     return (
         <Box 

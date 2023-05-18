@@ -16,7 +16,6 @@ import { createStructuredSelector } from 'reselect';
 import { setCookie, getCookie } from 'cookies-next';
 import jwt_decode from "jwt-decode";
 import { setUser } from "../store/user/userSlice";
-import CircularProgress from '@mui/material/CircularProgress';
 
 import main from "../styles/Main.module.scss";
 import Footer from "../components/Footer/Footer";
@@ -73,6 +72,8 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
       setUser(user)
     }
   }, [checkRole])
+
+  
 
   return (
     <Box>
