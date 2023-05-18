@@ -91,15 +91,12 @@ const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackL
     }, [selectTrack?.audio]);
 
     useEffect(() => {
-        console.log("start");
         if(selectTrack?.play) {
-            console.log("play");
             setTimeout(() => {
                 wavesurfer?.current?.play()
             }, 1)
             
         } else {
-            console.log("stop");
             setTimeout(() => {
                 wavesurfer?.current?.pause()
             }, 1)

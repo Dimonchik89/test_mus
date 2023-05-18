@@ -16,6 +16,7 @@ import { createStructuredSelector } from 'reselect';
 import { setCookie, getCookie } from 'cookies-next';
 import jwt_decode from "jwt-decode";
 import { setUser } from "../store/user/userSlice";
+import CircularProgress from '@mui/material/CircularProgress';
 
 import main from "../styles/Main.module.scss";
 import Footer from "../components/Footer/Footer";
@@ -70,7 +71,6 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
       setCookie("accessToken", checkRole?.token)
       const user = jwt_decode(checkRole?.token)
       setUser(user)
-      console.log('user', user);
     }
   }, [checkRole])
 

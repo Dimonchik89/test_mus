@@ -11,8 +11,6 @@ const Paginations = ({allTracksQty}) => {
 
     const allPages = Math.ceil(allTracksQty / +process.env.NEXT_PUBLIC_TRACKS_ON_PAGE)
 
-    console.log(allTracksQty);
-
     return (
         <Box className={paginations.wrapper}>
             <Pagination 

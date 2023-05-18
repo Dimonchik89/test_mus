@@ -120,3 +120,11 @@ body {
 .space__between {
     justify-content: space-between;
 }
+
+#nprogress .bar {
+  background: $yellow;
+}
+
+// #nprogress .peg {
+//   display: none;
+// }
