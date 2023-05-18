@@ -17,11 +17,11 @@ const ModalDownloadPatreon = () => {
                 align="center"
             >
                 To get an 
-                <Typography sx={{fontWeight: "700", fontSize: "1.5rem"}} component="span"> additional </Typography>
+                <Typography sx={{color: "#c4a70c", fontSize: "1.5rem"}} component="span"> additional </Typography>
                 versions and loops in 
-                <Typography sx={{fontWeight: "700", fontSize: "1.5rem"}} component="span"> ultra-quality format</Typography>
+                <Typography sx={{color: "#c4a70c", fontSize: "1.5rem"}} component="span"> ultra-quality format</Typography>
                 , as well as 
-                <Typography sx={{fontWeight: "700", fontSize: "1.5rem"}} component="span"> unlimited claims release  </Typography>
+                <Typography sx={{color: "#c4a70c", fontSize: "1.5rem"}} component="span"> unlimited claims release  </Typography>
                 for your videos, check our tariffs
             </Typography>
             <Typography

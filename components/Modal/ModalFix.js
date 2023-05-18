@@ -20,7 +20,7 @@ const ModalFix = ({show, handleClose, openError}) => {
                         component="h2"
                         align="center"
                     >
-                        If you used our music in your video then just put the link to the video bellow and associated copyright claims be relesed. Free plan allows you to release 1 claim per month.
+                        Just put the link to the video bellow and associated copyright claims be relesed. Free plan allows you to release 1 claim per month.
                     </Typography>
                     {/* <Typography
                         className={modal.download__text}
@@ -70,11 +70,11 @@ const ModalFix = ({show, handleClose, openError}) => {
                         sx={{marginTop: "1.5rem"}}
                     >
                         To get an 
-                        <Typography sx={{fontWeight: "700", fontSize: "2.3rem"}} component="span"> additional </Typography>
+                        <Typography variant="h4" sx={{color: "#c4a70c"}} component="span"> additional </Typography>
                         versions and loops in 
-                        <Typography sx={{fontWeight: "700", fontSize: "2.3rem"}} component="span"> ultra-quality format</Typography>
+                        <Typography variant="h4" sx={{color: "#c4a70c"}} component="span"> ultra-quality format</Typography>
                         , as well as 
-                        <Typography sx={{fontWeight: "700", fontSize: "2.3rem"}} component="span"> unlimited claims release  </Typography>
+                        <Typography variant="h4" sx={{color: "#c4a70c"}} component="span"> unlimited claims release  </Typography>
                         for your videos, check our tariffs
                     </Typography>
                     <Typography
