@@ -98,6 +98,7 @@ const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay,
                 show={downloadModal} 
                 handleClose={closeDownloadModal}
                 trackId={track.id}
+                trackName={track.name}
             />
         </Box>
     )

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import modal from "../../../styles/Modal.module.scss";
 
-const ModalDownloadSoundLink = ({trackId}) => {
+const ModalDownloadSoundLink = ({trackId, trackName}) => {
     const router = useRouter()
     const soundQuery = router.asPath.replace("/", "")
     const {sound, ...tailQuery} = router.query
@@ -14,16 +14,12 @@ const ModalDownloadSoundLink = ({trackId}) => {
     const [showSnack, setShowSnack] = useState(false)
 
 
-    useEffect(() => {
-        console.log(queryWithoutSound);
-    }, [router.query])
-
     const copyLink = async (e) => {
         try {
             if(router.query?.sound && router.query?.sound == trackId) {
-                await navigator.clipboard.writeText(`Song: The Temptation of a String \n Music provided by TuneBox \n ${process.env.NEXT_PUBLIC_SITE_PATH}?${soundQuery}`)
+                await navigator.clipboard.writeText(`Song: ${trackName} \n Music provided by TuneBox \n ${process.env.NEXT_PUBLIC_SITE_PATH}?${soundQuery}`)
             } else {
-                await navigator.clipboard.writeText(`Song: The Temptation of a String \n Music provided by TuneBox \n ${process.env.NEXT_PUBLIC_SITE_PATH}?${queryWithoutSound}&sound=${trackId}`)
+                await navigator.clipboard.writeText(`Song: ${trackName} \n Music provided by TuneBox \n ${process.env.NEXT_PUBLIC_SITE_PATH}?${queryWithoutSound}&sound=${trackId}`)
             }
             setCopyText('Copied!');
             setShowSnack(true)
@@ -58,7 +54,7 @@ const ModalDownloadSoundLink = ({trackId}) => {
                     <Typography
                         className={modal.download__text}
                     >
-                        Song: The Temptation of a String 
+                        Song: {trackName}
                     </Typography>
                     <Typography
                         className={modal.download__text}
