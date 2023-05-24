@@ -45,7 +45,14 @@ const Footer = ({openModal, closeModal}) => {
                     <Box className={footer.bottom}>
                         <Typography
                             className={footer.link}
-                            onClick={openModal}
+                            // onClick={openModal}
+                            onClick={() => router.push({
+                                pathname: router.pathname,
+                                query: {
+                                    ...router.query,
+                                    modal: "fix"
+                                }
+                            }, null, {scroll: false, shallow: true})}
                         >
                             Got a Claim? Fix it
                         </Typography>

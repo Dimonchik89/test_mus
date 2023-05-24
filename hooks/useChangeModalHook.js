@@ -1,16 +1,23 @@
 import { useState } from "react"
+import { useRouter } from "next/router"
 
 const useChangeModalHook = () => {
   const [fixModal, setFixModal] = useState(false)
   const [errorModal, setErrorModal] = useState(false)
   const [patreonModal, setPatreonModal] = useState(false)
   const [downloadModal, setDownloadModal] = useState(false)
+  const router = useRouter()
 
   const openFixModal = () => {
     setFixModal(true)
   }
 
   const closeFixModal = () => {
+    const {modal, ...tailQuery} = router.query
+    router.push({
+      pathname: router.query.pathname,
+      query: {...tailQuery}
+    }, null, {scroll: false, shallow: true})
     setFixModal(false)
   }
 

@@ -73,7 +73,14 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
     }
   }, [checkRole])
 
-  
+  useEffect(() => {
+    if(router.query?.modal) {
+      console.log("ok", router.query?.modal);
+      openFixModal()
+    } else {
+      console.log("false");
+    }
+  }, [router.query?.modal])
 
   return (
     <Box>

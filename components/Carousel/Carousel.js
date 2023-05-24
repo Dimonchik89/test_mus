@@ -21,11 +21,6 @@ const Carousel = ({categories}) => {
     const router = useRouter()
     const {pathname, query} = router
 
-    useEffect(() => {
-        console.log("query", query);
-        console.log("pathname", pathname);
-    }, [pathname, query])
-
     const saveCarouselPosition = () => {
         const position = +swiperRef.current.childNodes[0].style.transform.split("(").pop().split(",")[0].split("p")[0]
         localStorage.setItem("carouselScroll", position)
@@ -33,7 +28,6 @@ const Carousel = ({categories}) => {
 
     useEffect(() => {
         const currentPosition = localStorage.getItem("carouselScroll")
-        console.log("currentPosition", !!query);
         if(router.query?.categoryId) {
             setTimeout(() => {
                 swiperRef.current.childNodes[0].style.transform = "translate3d(" + currentPosition + "px, 0px, 0px"
