@@ -1,14 +1,36 @@
 import { Box, Typography } from "@mui/material";
 import FooterSocial from "./FooterSocial";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 
 import helper from "../../styles/Helper.module.scss";
 import footer from "../../styles/Footer.module.scss";
+import ModalContact from "../Modal/ModalContact";
 
 const Footer = ({openModal, closeModal}) => {
     const footerRef = useRef(null)
     const router = useRouter()
+    const [show, setShow] = useState(false)
+
+
+    useEffect(() => {
+        if(router.query?.contact) {
+            handleShow()
+        }
+    }, [router.query?.contact])
+
+    const handleClose = () => {
+        const {contact, ...tailQuery} = router.query
+        router.push({
+                pathname: router.query.pathname,
+                query: {...tailQuery}
+            }, null, {scroll: false, shallow: true})
+        setShow(false)
+    }
+
+    const handleShow = () => {
+        setShow(true)
+    }
 
     // useEffect(() => {
 
@@ -65,6 +87,18 @@ const Footer = ({openModal, closeModal}) => {
                         </a>
                         <Typography
                             className={footer.link}
+                            onClick={() => router.push({
+                                pathname: router.pathname,
+                                query: {
+                                    ...router.query,
+                                    contact: "show"
+                                }
+                            }, null, {scroll: false, shallow: true})}
+                        >
+                            Contact
+                        </Typography>
+                        <Typography
+                            className={footer.link}
                             onClick={() => router.push("/faq")}
                         >
                             FAQ
@@ -72,6 +106,8 @@ const Footer = ({openModal, closeModal}) => {
                     </Box>
                 </Box>
             </Box>
+
+            <ModalContact show={show} handleClose={handleClose}/>
         </Box>
     )
 }

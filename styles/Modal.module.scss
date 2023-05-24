@@ -57,6 +57,10 @@
             padding: 0 .5rem;
         }
 
+        &.height__auto {
+            height: auto;
+        }
+
         .fix__input {
             margin: 0;
             padding: 0;
@@ -68,6 +72,53 @@
             font-size: 1.4rem;
             color: $white;
             background: transparent;
+
+            &::placeholder {
+                font-size: 1.4rem;
+                color: $white;
+            }
+
+            &:active,
+            &:focus {
+                outline: none;
+            }
+            
+            @media (max-width: #{$md3 + px}) {
+                padding: 0 .5rem;
+            }
+        }
+
+        .textarea {
+            margin: 0;
+            padding: 0;
+            border: none;
+            // height: 100%;
+            padding: 1rem 1rem;
+            margin-left: 1rem;
+            flex: 1 1 auto;
+            font-size: 1.4rem;
+            color: $white;
+            background: transparent;
+            resize: none;
+
+            @media (any-hover: hover) {
+                &::-webkit-scrollbar {
+                    width: 1rem;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: $gray;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: $yellow;
+                    border-radius: .5rem;
+                }
+
+                &::-webkit-scrollbar-thumb:hover {
+                    background: darken($yellow, 10%);
+                }
+            }
 
             &::placeholder {
                 font-size: 1.4rem;

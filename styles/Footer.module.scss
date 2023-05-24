@@ -99,14 +99,14 @@
     }
 
     .link__center {
-        margin-right: 12rem;
+        // margin-right: 12rem;
 
-        @media (max-width: #{$md2 + px}) {
-            margin-right: 11rem;
-        }
+        // @media (max-width: #{$md2 + px}) {
+        //     margin-right: 11rem;
+        // }
 
-        @media (max-width: #{$md3 + px}) {
-            margin-right: 0;
-        }
+        // @media (max-width: #{$md3 + px}) {
+        //     margin-right: 0;
+        // }
     }
 }
