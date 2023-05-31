@@ -22,6 +22,8 @@ import Footer from "../components/Footer/Footer";
 import ModalFix from "../components/Modal/ModalFix";
 import ModalError from "../components/Modal/ModalError";
 import useChangeModalHook from "../hooks/useChangeModalHook";
+import CustomHead from "../components/CustomHead/CustomHead";
+import Counter from "../components/Counter/Counter";
 
 const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, firstLoad, setSelectTrack, setTrackLoaded, selectTrack, checkRole, setUser}) => {
   const router = useRouter()
@@ -84,6 +86,7 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
 
   return (
     <Box>
+      <CustomHead/>
       <Box className={main.main}>
         <Header/>
         <Main/>
@@ -102,6 +105,7 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
       />
       <ModalFix show={fixModal} handleClose={closeFixModal} openError={openErrorModal}/>
       <ModalError show={errorModal} handleClose={closeErrorModal}/>
+      <Counter/>
     </Box>
   )
 }

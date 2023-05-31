@@ -14,14 +14,13 @@ import main from "../styles/Main.module.scss"
 import login from "../styles/Login.module.scss"
 import FormUser from "../components/Form/FormUser";
 import { useRouter } from "next/router";
+import CustomHead from "../components/CustomHead/CustomHead";
 
 
 const Login = ({setUser}) => {
     const {errorModal, closeErrorModal, openErrorModal} = useChangeModalHook();
     const [errorMessage, setErrorMessage] = useState("")
     const router = useRouter()
-
-    //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbnRpYmFudHVuZWJveEBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE2ODM4ODg3NTQsImV4cCI6MTY4Mzk3NTE1NH0.NijI-EbvNqxYCxu1xAd9EqrpHzh_82OezBKiQJtG9jo
  
     const handleSubmit = async ({e, email, password}) => {
         e.preventDefault()
@@ -45,6 +44,7 @@ const Login = ({setUser}) => {
 
     return (
         <Box className={main.main}>
+            <CustomHead subtitle={"Login"}/>
             <Box className={login.body}>
                 <Header/>
                 <Box className="_container">

@@ -7,6 +7,7 @@ import AccordionBlock from "../components/Accordion/AccordionBlock";
 import ModalFix from "../components/Modal/ModalFix";
 import ModalError from "../components/Modal/ModalError";
 import useChangeModalHook from "../hooks/useChangeModalHook";
+import CustomHead from "../components/CustomHead/CustomHead";
 
 const accordionContent = [
     {
@@ -43,6 +44,7 @@ const Faq = () => {
 
     return (
         <Box className={main.main}>
+            <CustomHead subtitle={"FAQ"}/>
             <Box className={faq.body}>
                 <Header/>
                 <Box className="_container">
