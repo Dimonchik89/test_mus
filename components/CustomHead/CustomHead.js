@@ -6,8 +6,8 @@ const CustomHead = ({subtitle}) => {
     return (
         <Head>
           <title>{addSubtitle}</title>
-          <meta name="keywords" content="TuneBox,music,sound,free,download,track,chill,relax,sport,dark,epic,abstract"/>
-          <meta name="description" content="TuneBox"/>
+          <meta name="keywords" content="TuneBox,inspiring,travel,horror,epic,romantic,ethnic,family,corporate,hybrid,hip-hop,yoga,thriller,documentary,trailer,action,fantasy,sport,media"/>
+          <meta name="description" content="Tunebox's music is perfect for use as free background music for videos. The music you download from Tunebox is free and royalty-free. For Vlogs & Stream. New music added daily. Whitelist YouTube channel. Join free today! Choose no copyright music from many genres."/>
           <meta charSet="urf-8"/>
           <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon/apple-touch-icon.png"/>
           <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png"/>
