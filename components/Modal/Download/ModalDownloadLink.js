@@ -16,6 +16,9 @@ const ModalDownloadLink = ({handleClose}) => {
             >
                 Paste the link to your video and we will take care of it
             </Typography>
+            <Typography sx={{color: "#c4a70c", fontSize: "1.5rem"}} component="h3" align="center">
+                &quot;You can do this later when your video is ready&quot;
+            </Typography>
             <form
                 onSubmit={handleSubit}
                 className={modal.form}
