@@ -9,7 +9,7 @@ const TrackItemLogo = ({img, handleSelect}) => {
             onClick={handleSelect}
             className={`${tracks.img} ${helper._ibg}`}
         >
-            <img src={`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}${img}`} slt="pic"/>
+            <img src={`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}${img}`} alt="pic"/>
         </div>
     )
 }
