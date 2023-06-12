@@ -159,6 +159,7 @@ const Player = ({selectTrack, setChangePlay, setChangeSelectTrackPlay, setTrackL
                                 className={player.close__player}
                                 disabled={!trackLoaded}
                                 onClick={handleClosePlayer}
+                                aria-label="close player"
                             >
                                 <CloseIcon fontSize="large" sx={{color: "white"}}/>
                             </button>
