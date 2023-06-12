@@ -15,6 +15,7 @@ const FooterSocial = () => {
                 className={footer.social__link}
                 href={process.env.NEXT_PUBLIC_INSTAGRAM}
                 target="_blank"
+                aria-label="Instagram"
             >
                 <InstagramIcon
                     sx={{color: "white", fontSize: "3.5rem"}}
@@ -24,6 +25,7 @@ const FooterSocial = () => {
                 className={footer.social__link}
                 href={process.env.NEXT_PUBLIC_FACEBOOK}
                 target="_blank"
+                aria-label="Facebook"
             >
                 <FacebookIcon
                     sx={{color: "white", fontSize: "3.5rem"}}
@@ -33,6 +35,7 @@ const FooterSocial = () => {
                 className={footer.social__link}
                 href={process.env.NEXT_PUBLIC_TWITTER}
                 target="_blank"
+                aria-label="Twitter"
             >
                 <TwitterIcon
                     sx={{color: "white", fontSize: "3.5rem"}}
@@ -42,6 +45,7 @@ const FooterSocial = () => {
                 className={footer.social__link}
                 href={process.env.NEXT_PUBLIC_YOUTUBE} 
                 target="_blank"
+                aria-label="Youtube"
             >
                 <YouTubeIcon
                     sx={{color: "white", fontSize: "3.5rem"}}

@@ -40,6 +40,7 @@ const PlayButton = ({handleClick, play, disabled, playRef, trackId}) => {
             className={`${style} ${activeSound}`}
             disabled={disabled}
             ref={playRef}
+            aria-label='track play'
         >
             {content}
         </button>

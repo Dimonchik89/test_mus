@@ -42,6 +42,7 @@ const Search = () => {
                 />
                 <button 
                     className={search.search__submit}
+                    aria-label="search"
                     type="submit"
                 >
                     <ArrowForwardIcon fontSize="large"/>

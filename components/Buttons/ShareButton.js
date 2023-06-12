@@ -18,6 +18,7 @@ const ShareButton = ({share, handleShare}) => {
         <button 
             className={`${button.play} ${button.share__btn}`}
             onClick={handleShare}
+            aria-label='share track'
         >
             {shareIcon}
         </button>
