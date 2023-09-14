@@ -5,7 +5,7 @@ import useSendMailHook from "../../hooks/useSendMailHook";
 
 import modal from "../../styles/Modal.module.scss";
 
-const ModalFix = ({show, handleClose, openError}) => {
+const ModalFix = ({show, handleClose, openError, handleOpenLinkAlert}) => {
     const {value, changeValue, handleSubit} = useSendMailHook(handleClose)
 
     return (
@@ -23,7 +23,10 @@ const ModalFix = ({show, handleClose, openError}) => {
                         Just put the link to the video bellow and associated copyright claims be relesed. Free plan allows you to release 1 claim per month.
                     </Typography>
                     <form
-                        onSubmit={handleSubit}
+                        onSubmit={(e) => {
+                            handleSubit(e)
+                            handleOpenLinkAlert()
+                        }}
                         className={modal.form}
                     >
                         <YouTubeIcon sx={{fontSize: "40px"}}/>

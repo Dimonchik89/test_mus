@@ -111,7 +111,12 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
         firstLoad={firstLoading}
         setFirstLoad={changeFirstLoad}
       />
-      <ModalFix show={fixModal} handleClose={closeFixModal} openError={openErrorModal}/>
+      <ModalFix 
+        show={fixModal} 
+        handleClose={closeFixModal} 
+        openError={openErrorModal}
+        handleOpenLinkAlert={handleOpenLinkAlert}  
+      />
       <ModalError show={errorModal} handleClose={closeErrorModal}/>
       <AlertSendLink  open={sendLinkAlert} handleClose={handleCloseLinkAlert}/>
       <Counter/>

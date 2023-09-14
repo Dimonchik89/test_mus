@@ -4,7 +4,7 @@ const AlertSendLink = ({open, handleClose}) => {
 
     return (
         <Snackbar
-            open={open}
+            open={true}
             autoHideDuration={3000}
             anchorOrigin={{
                 vertical: "bottom",
@@ -13,7 +13,7 @@ const AlertSendLink = ({open, handleClose}) => {
             onClose={handleClose}
             message="Note archived"
         >
-            <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+            <Alert onClose={handleClose} severity="success" sx={{ width: '100%', fontSize: "14px" }}>
                 All is set! Your claim will be released soon. Usualy it takes up to 1 day.
             </Alert>
         </Snackbar>
