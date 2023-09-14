@@ -12,11 +12,11 @@ import { useRouter } from "next/router";
 import useChangeModalHook from "../../hooks/useChangeModalHook";
 import ModalPatreon from "../Modal/ModalPatreon";
 
-const TracksList = ({tracks}) => {
+const TracksList = ({tracks, handleOpenLinkAlert}) => {
     const router = useRouter()
     const {patreonModal, openPatreonModal, closePatreonModal} = useChangeModalHook()
 
-    const content = tracks?.map(track => <TrackItem key={track.id} track={track} openPatreonModal={openPatreonModal}/>)
+    const content = tracks?.map(track => <TrackItem key={track.id} track={track} openPatreonModal={openPatreonModal} handleOpenLinkAlert={handleOpenLinkAlert}/>)
 
     return (
         <Box className={tracksStyle.list}>

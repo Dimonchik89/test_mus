@@ -24,11 +24,21 @@ import ModalError from "../components/Modal/ModalError";
 import useChangeModalHook from "../hooks/useChangeModalHook";
 import CustomHead from "../components/CustomHead/CustomHead";
 import Counter from "../components/Counter/Counter";
+import AlertSendLink from "../components/AlertSendLink/AlertSendLink";
 
 const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, firstLoad, setSelectTrack, setTrackLoaded, selectTrack, checkRole, setUser}) => {
   const router = useRouter()
   const [firstLoading, setFirstLoading] = useState(true)
   const {fixModal, openFixModal, closeFixModal, errorModal, openErrorModal, closeErrorModal} = useChangeModalHook()
+  const [sendLinkAlert, setSendLinkAlert] = useState(false)
+
+  const handleOpenLinkAlert = () => {
+    setSendLinkAlert(true)
+  }
+
+  const handleCloseLinkAlert = () => {
+    setSendLinkAlert(false)
+  }
 
   useEffect(() => {
     setCategories(categories)
@@ -91,7 +101,7 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
         <Carousel/>
       </Box>
       <Box className={main.wrapper}>
-        <Tracks/>
+        <Tracks handleOpenLinkAlert={handleOpenLinkAlert}/>
         <Footer
           openModal={openFixModal}
           closeModal={closeFixModal}
@@ -103,6 +113,7 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
       />
       <ModalFix show={fixModal} handleClose={closeFixModal} openError={openErrorModal}/>
       <ModalError show={errorModal} handleClose={closeErrorModal}/>
+      <AlertSendLink  open={sendLinkAlert} handleClose={handleCloseLinkAlert}/>
       <Counter/>
     </Box>
   )

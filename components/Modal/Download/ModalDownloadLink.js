@@ -5,7 +5,7 @@ import useSendMailHook from "../../../hooks/useSendMailHook";
 
 import modal from "../../../styles/Modal.module.scss";
 
-const ModalDownloadLink = ({handleClose}) => {
+const ModalDownloadLink = ({handleClose, handleOpenLinkAlert}) => {
     const {value, changeValue, handleSubit} = useSendMailHook(handleClose)
 
     return (
@@ -20,7 +20,10 @@ const ModalDownloadLink = ({handleClose}) => {
                 &quot;You can do this later when your video is ready&quot;
             </Typography>
             <form
-                onSubmit={handleSubit}
+                onSubmit={(e) => {
+                    handleSubit(e)
+                    handleOpenLinkAlert()
+                }}
                 className={modal.form}
             >
                 <YouTubeIcon sx={{fontSize: "40px"}}/>
