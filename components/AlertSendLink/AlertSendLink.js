@@ -4,7 +4,7 @@ const AlertSendLink = ({open, handleClose}) => {
 
     return (
         <Snackbar
-            open={true}
+            open={open}
             autoHideDuration={3000}
             anchorOrigin={{
                 vertical: "bottom",
