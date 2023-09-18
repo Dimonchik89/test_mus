@@ -108,7 +108,7 @@ const Home = ({categories, setCategories, tracks, setTracks, setAllTracksQty, fi
         openError={openErrorModal}
       />
       <ModalError show={errorModal} handleClose={closeErrorModal}/>
-      <AlertSendLink />
+      <AlertSendLink/>
       <Counter/>
     </Box>
   )
