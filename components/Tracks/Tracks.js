@@ -4,7 +4,7 @@ import tracks from "../../styles/Tracks.module.scss";
 import TrackList from "./TracksList";
 import Paginations from "../Paginations/Paginations";
 
-const Tracks = ({handleOpenLinkAlert}) => {
+const Tracks = () => {
 
     return (
         <Box className={tracks.tracks}>
@@ -17,7 +17,7 @@ const Tracks = ({handleOpenLinkAlert}) => {
                     >
                         New Tracks
                     </Typography>
-                    <TrackList handleOpenLinkAlert={handleOpenLinkAlert}/>
+                    <TrackList />
                     <Paginations/>
                 </Box>
             </Box>

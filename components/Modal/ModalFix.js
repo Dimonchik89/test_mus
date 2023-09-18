@@ -2,10 +2,13 @@ import { Box, Button, Modal, Typography } from "@mui/material";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import useSendMailHook from "../../hooks/useSendMailHook";
+import { bindActionCreators } from "@reduxjs/toolkit";
+import { connect } from "react-redux";
+import { handleOpenAlert } from "../../store/alert";
 
 import modal from "../../styles/Modal.module.scss";
 
-const ModalFix = ({show, handleClose, openError, handleOpenLinkAlert}) => {
+const ModalFix = ({show, handleClose, openError, handleOpenAlert}) => {
     const {value, changeValue, handleSubit} = useSendMailHook(handleClose)
 
     return (
@@ -25,7 +28,7 @@ const ModalFix = ({show, handleClose, openError, handleOpenLinkAlert}) => {
                     <form
                         onSubmit={(e) => {
                             handleSubit(e)
-                            handleOpenLinkAlert()
+                            handleOpenAlert()
                         }}
                         className={modal.form}
                     >
@@ -73,4 +76,9 @@ const ModalFix = ({show, handleClose, openError, handleOpenLinkAlert}) => {
         </Modal>
     )
 }
-export default ModalFix;
+
+const mapDispatchToProps = dispatch => ({
+    handleOpenAlert: bindActionCreators(handleOpenAlert, dispatch)
+})
+
+export default connect(null, mapDispatchToProps)(ModalFix);

@@ -18,7 +18,7 @@ import helper from "../../../styles/Helper.module.scss"
 import tracks from "../../../styles/Tracks.module.scss"
 
 
-const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay, trackLoaded, setTrackLoaded, stopAllTrack, openPatreonModal, handleOpenLinkAlert}) => {
+const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay, trackLoaded, setTrackLoaded, stopAllTrack, openPatreonModal}) => {
     const [share, setShare] = useState(false)
     const [activeStyle, setActiveStyle] = useState(tracks.item)
     const router = useRouter();
@@ -99,7 +99,6 @@ const TrackItem = ({track, selectTrack, setChangePlay, setChangeSelectTrackPlay,
                 handleClose={closeDownloadModal}
                 trackId={track.id}
                 trackName={track.name}
-                handleOpenLinkAlert={handleOpenLinkAlert}
             />
         </Box>
     )

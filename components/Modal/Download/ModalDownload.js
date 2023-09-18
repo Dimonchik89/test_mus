@@ -9,7 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import modal from "../../../styles/Modal.module.scss";
 import ModalDownloadPatreon from "./ModalDownloadPatreon";
 
-const ModalDownload = ({show, handleClose, trackId, trackName, handleOpenLinkAlert}) => {
+const ModalDownload = ({show, handleClose, trackId, trackName}) => {
 
     return (
         <Modal
@@ -26,7 +26,7 @@ const ModalDownload = ({show, handleClose, trackId, trackName, handleOpenLinkAle
                         <ModalDownloadSoundLink trackId={trackId} trackName={trackName}/>
                     </ModalDownloadWrapper>
                     <ModalDownloadWrapper>
-                        <ModalDownloadLink handleClose={handleClose} handleOpenLinkAlert={handleOpenLinkAlert}/>
+                        <ModalDownloadLink handleClose={handleClose}/>
                     </ModalDownloadWrapper>
                     <ModalDownloadWrapper>
                         <ModalDownloadPatreon/>

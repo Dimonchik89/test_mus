@@ -2,10 +2,13 @@ import { Box, Button, Typography } from "@mui/material";
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import useSendMailHook from "../../../hooks/useSendMailHook";
+import { bindActionCreators } from "@reduxjs/toolkit";
+import { connect } from "react-redux";
+import { handleOpenAlert } from "../../../store/alert";
 
 import modal from "../../../styles/Modal.module.scss";
 
-const ModalDownloadLink = ({handleClose, handleOpenLinkAlert}) => {
+const ModalDownloadLink = ({handleClose, handleOpenAlert}) => {
     const {value, changeValue, handleSubit} = useSendMailHook(handleClose)
 
     return (
@@ -22,7 +25,7 @@ const ModalDownloadLink = ({handleClose, handleOpenLinkAlert}) => {
             <form
                 onSubmit={(e) => {
                     handleSubit(e)
-                    handleOpenLinkAlert()
+                    handleOpenAlert()
                 }}
                 className={modal.form}
             >
@@ -45,4 +48,9 @@ const ModalDownloadLink = ({handleClose, handleOpenLinkAlert}) => {
         </Box>
     )
 }
-export default ModalDownloadLink;
+
+const mapDispatchToProps = dispatch => ({
+    handleOpenAlert: bindActionCreators(handleOpenAlert, dispatch)
+})
+
+export default connect(null, mapDispatchToProps)(ModalDownloadLink);
