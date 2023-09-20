@@ -1,25 +1,34 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import useSendMailHook from "../../hooks/useSendMailHook";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
+import { handleOpenAlert } from "../../store/alert";
+import { bindActionCreators } from "@reduxjs/toolkit";
+import { connect } from "react-redux";
 
 import modal from "../../styles/Modal.module.scss";
 
-const ModalContact = ({show, handleClose}) => {
-    const [email, setEmail] = useState("")
-    const [textArea, setTextArea] = useState("")
+const ModalContact = ({show, handleClose, handleOpenAlert}) => {
     const {value, changeValue, handleSubit} = useSendMailHook(handleClose)
     const router = useRouter()
+    const [universalValue, setUniversalValue] = useState({email: "", textArea: ""})
+
 
     const submitForm = async (e) => {
         e.preventDefault()
-        changeValue(`Email: ${email}; Message: ${textArea}`)
-        setTextArea("")
-        setEmail("")
+
         await handleSubit(e)
         handleClose()
+        handleOpenAlert()
+        setUniversalValue({email: "", textArea: ""})
     }
+
+    const handleChangeValue = ({target}) => {
+        setUniversalValue({...universalValue, [target.name]: target.value})
+        changeValue(`Email: ${universalValue.email}; Message: ${universalValue.textArea}`)
+    }
+
 
     return (
         <Modal
@@ -38,10 +47,11 @@ const ModalContact = ({show, handleClose}) => {
                     <div className={modal.form}>
                         <input
                             type="text"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            value={universalValue.email}
+                            onChange={e => handleChangeValue(e)}
                             placeholder="Your email"
                             className={modal.fix__input}
+                            name="email"
                         />
                     </div>
 
@@ -53,9 +63,10 @@ const ModalContact = ({show, handleClose}) => {
                         <textarea
                             type="text"
                             rows="4"
-                            value={textArea}
-                            onChange={e => setTextArea(e.target.value)}
+                            value={universalValue.textArea}
+                            onChange={e => handleChangeValue(e)}
                             className={modal.textarea}
+                            name="textArea"
                         />
                         <Button 
                             type="submit"
@@ -70,4 +81,9 @@ const ModalContact = ({show, handleClose}) => {
         </Modal>
     )
 }
-export default ModalContact;
+
+const mapDispatchToProps = dispatch => ({
+    handleOpenAlert: bindActionCreators(handleOpenAlert, dispatch)
+})
+
+export default connect(null, mapDispatchToProps)(ModalContact);

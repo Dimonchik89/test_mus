@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { sendEmail } from "../api/sendEmail";
 
+
 const useSendMailHook = (handleClose) => {
     const [value, setValue] = useState("")
 
     const handleSubit = async (e) => {
         e.preventDefault()
-
+        
+        console.log("hookvalue", value);
         const response = await sendEmail(value)
         if(response.status === 200) {
             setValue("")
@@ -14,7 +16,7 @@ const useSendMailHook = (handleClose) => {
         } else {
             setValue("")
             handleClose()
-            openError()
+            // openError()
         }
     }
 
