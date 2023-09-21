@@ -18,7 +18,7 @@ const AlertSendLink = ({openAlert, handleCloseAlert}) => {
             message="Note archived"
         >
             <Alert onClose={handleCloseAlert} severity="success" sx={{ width: '100%', fontSize: "14px" }}>
-                All is set! Your claim will be released soon. Usualy it takes up to 1 day.
+                All is set! Sit tight and wait for the result.
             </Alert>
         </Snackbar>
     )
