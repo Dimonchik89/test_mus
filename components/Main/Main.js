@@ -15,7 +15,7 @@ const Main = () => {
                             component="h1"
                             className={`${helper._uppercase} ${helper._title} ${main.label__title}`}
                         >
-                            ROYALTY FREE MUSIC FOR VIDEO WITHOUT CLAIMS
+                            FREE NO COPYRIGHT MUSIC FOR VIDEOS
                         </Typography>
                         <Typography
                             variant="h2"
